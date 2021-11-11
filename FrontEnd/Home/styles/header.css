@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(148, 148, 243);
+}
+
+#logo > img {
+    width: 200px;
+}
+#logo {
+    text-decoration: none;
+    color: black;
+}
+
+#nav, #nav li, #nav li a {
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+
+}
