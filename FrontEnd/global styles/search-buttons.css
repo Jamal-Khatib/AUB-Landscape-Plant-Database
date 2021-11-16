@@ -1,0 +1,21 @@
+#search-btn-container{
+    margin: 5px;
+}
+.search-btn-buffer {
+    display: flex;
+    margin: 5px;
+}
+.search-btn {
+    width: 220px;
+    padding: 10px 20px;
+    border: #1b4332ff solid 2px;
+    box-shadow: 3px 3px 2px #40916cff;
+    background-color: #2d6a4fff;
+    text-align: center;
+}
+.search-btn:hover {
+    box-shadow: inset -2px -2px #40916cff;
+}
+.search-btn > img {
+    margin-top: 15px;
+}

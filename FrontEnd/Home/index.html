@@ -8,7 +8,8 @@
     <title>AUB Landscape - Home</title>
     <link rel="stylesheet" href="../global styles/header-footer.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <script src="./js/footer.js"></script>
+    <link rel="stylesheet" href="./styles/search-btns.css">
+    <script src="../global js/footer.js"></script>
 </head>
 
 <body>
@@ -188,19 +189,25 @@
                     </li>
                 </ul>
             </div>
-            <div id="search-btns">
-                <a class="search-btn" href="#">
-                    <p>Filter By Name</p>
-                    <img src="../global images/tab_search.png" alt="magnifying glass">
-                </a>
-                <a class="search-btn" href="#">
-                    <p>Filter By Criteria</p>
-                    <img src="../global images/tab_criteria.png" alt="barcode">
-                </a>
-                <a class="search-btn" href="#">
-                    <p>Filter By Identification</p>
-                    <img src="../global images/tab_identification.png" alt="fingerprint">
-                </a>
+            <div id="search-btn-container">
+                <div class="search-btn-buffer">
+                    <a class="search-btn" href="#">
+                        <p>Filter By Name</p>
+                        <img src="../global images/tab_search.png" alt="magnifying glass">
+                    </a>
+                </div>
+                <div class="search-btn-buffer">
+                    <a class="search-btn" href="#">
+                        <p>Filter By Criteria</p>
+                        <img src="../global images/tab_criteria.png" alt="barcode">
+                    </a>
+                </div>
+                <div class="search-btn-buffer">
+                    <a class="search-btn" href="#">
+                        <p>Filter By Identification</p>
+                        <img src="../global images/tab_identification.png" alt="fingerprint">
+                    </a>
+                </div>
             </div>
         </div>
     </section>

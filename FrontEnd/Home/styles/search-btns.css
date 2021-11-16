@@ -1,0 +1,30 @@
+#search-btn-container{
+    display: flex;
+    overflow: hidden;
+    height: 250px;
+}
+
+.search-btn-buffer {
+    display: flex;
+    height: 300px;
+    overflow: hidden;
+}
+
+.search-btn {
+    width: 220px;
+    text-align: center;
+    margin: 5px;
+    padding: 10px 20px;
+    border: #1b4332ff solid 2px;
+    box-shadow: 3px 3px 2px #40916cff;
+    overflow: hidden;
+    max-height: 60px;
+    transition: all 0.5s ease-in-out;
+    background-color: #2d6a4fff;
+}
+.search-btn:hover {
+    max-height: 500px;
+}
+.search-btn > img {
+    margin-top: 30px;
+}

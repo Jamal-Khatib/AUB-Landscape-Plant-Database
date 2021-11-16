@@ -1,0 +1,57 @@
+main {
+    display: flex;
+    margin: 10px 50px 10px 0;
+}
+
+/* Profile Container */
+#profile-container {
+    flex: auto;
+    border: 5px solid black;
+}
+h3 {
+    background-color: black;
+    color: white;
+}
+
+/* Beginning Text */
+h4 {
+    font-size: 1.5em;
+}
+#plant-name {
+    color: green;
+}
+#plant-description {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Tab Buttons */
+#tabs-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: grey;
+    width: 100%;
+}
+.selected-tab {
+    background-color: red;
+}
+
+/* Tabs */
+#plant-content {
+    display: flex;
+}
+#plant-images {
+    flex: auto;
+}
+#plant-tab {
+}
+
+#plant-tab-landscape {
+    display: block;
+}
+#plant-tab-botanical {
+    display: none;
+}
+#plant-tab-horticulture {
+    display: none;
+}
