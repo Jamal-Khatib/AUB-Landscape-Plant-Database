@@ -16,19 +16,9 @@ colors {
     border-bottom: 5px dashed rgba(255, 255, 255, 0.486);
 }
 #about-us > div {
-    font-size: 1.3em;
     width: 80%;
     color: rgb(255, 255, 255);
 }
-#about-us > div > h3 {
-    width: fit-content;
-    margin-bottom: 20px;
-    padding: 3px;
-    color: white;
-    text-shadow: 3px 3px #1b4332ff;
-    text-transform: uppercase;
-}
-
 .read-more {
     color: #2d6a4f;
 }
@@ -38,7 +28,7 @@ colors {
 
 /* Section Spotlight + searching */
 #spotlight-search {
-    margin: 100px 50px;
+    margin: 100px 50px 50px 50px;
     display: flex;
     justify-content: space-between;
     color: white;
@@ -47,7 +37,6 @@ colors {
 
 #spotlight-left {
     flex: 1;
-    margin-bottom: 100px;
 }
 #spotlight-left > img {
     border: 1px dashed black;
@@ -73,7 +62,7 @@ colors {
 #navigation_links > ul > li > a {
     color: #2d6a4fff;
     font-size: 30px;
-    text-shadow: 1px 1px white;
+    text-shadow: 1px 1px 1px #2d6a4fff;
     transition: all 1s ease-out;
 }
 #navigation_links > ul > li > a:hover {

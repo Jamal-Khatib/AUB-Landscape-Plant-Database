@@ -16,6 +16,9 @@
 .search-btn:hover {
     box-shadow: inset -2px -2px #40916cff;
 }
+.search-btn > p {
+    color: white;
+}
 .search-btn > img {
     margin-top: 15px;
 }

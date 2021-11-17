@@ -25,6 +25,9 @@
 .search-btn:hover {
     max-height: 500px;
 }
+.search-btn > p {
+    color: white;
+}
 .search-btn > img {
     margin-top: 30px;
 }
