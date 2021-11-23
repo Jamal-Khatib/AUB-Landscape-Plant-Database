@@ -1,6 +1,7 @@
 const express = require("express") ; 
 const mongoose = require("mongoose") ; 
 const Plant = require("./models/plant") ; 
+const url = require("url") ;
 
 const app = new express() ; 
 app.use(express.urlencoded({extended:true})) ; 
@@ -21,7 +22,6 @@ mongoose.connect(URI)
     })
 
 // app.listen(3000) ; 
-
 
 app.get("/",(req,res) => 
 {
@@ -54,8 +54,7 @@ app.get("/",(req,res) =>
 
     res.render("home") ; 
 
-})
-
+});
 
 app.get("/plant",(req,res) => 
 {
@@ -63,8 +62,23 @@ app.get("/plant",(req,res) =>
     .then((result)=> {
         console.log("This isss the result : "+(result[0].name)) ; 
         res.render("plant_profile", {plant: result[0]}) ; 
-    })
+    });
    
-})
+});
 
+app.get("/ByLetter",(req,res) =>
+{   
+    let letter = url.parse(req.url,true).query.letter; //get letter from url
 
+    if(!letter.match(/^[a-zA-Z]{1}$/)){   //check if it is a singular letter
+        res.render("home");             //render home if not
+        // console.log(letter);
+    }
+    else{
+        res.render("filter", {firstLetter: letter});
+    }
+
+});
+
+app.listen(8080);
+console.log("server started");
