@@ -38,38 +38,28 @@
         <div>
             <h3 id="startingLetter">Plants starting with: <%=firstLetter%></h3>
 
+
+            <% if(plants.length==0) { %>
+
+                <h1  style="color: white; background-color: black; "> No Plants are in our database</h1>
+
+            <% } else  { 
+
+            for(let i = 0 ; i<plants.length ; i++) {  %>
+
+             
             <div class="plantBox">
                 <img src="images/filler.png" alt=""/>
-                <h2 class="plantName">Bassia Scopaira</h2>
-                <h4 class="secondName">(common kochia, Burningbush)</h4>
+                <h2 class="plantName"> <%= plants[i].name %></h2>
+                <h4 class="secondName"><%= plants[i].scientific_name %></h4>
                 <div class="plantProperties">
                     <img src="images/filler.png" alt="Tree"/>
-                    <img src="images/filler.png" alt="5 to 8 m"/>
-                    <img src="images/filler.png" alt="5 to 8 m"/>
-                    <img src="images/filler.png" alt="Round,Vase"/>
-                    <img src="images/filler.png" alt="Growing Fast"/>
-                    <img src="images/filler.png" alt="Red,PinkPurple,Blue,Pink"/>
-                    <img src="images/filler.png" alt="Green,Brown Fruit"/>
-                    <img src="images/filler.png" alt="Fragrant"/>
-                    <img src="images/filler.png" alt="Full Light"/>
-                    <img src="images/filler.png" alt="Partial Light"/>
+                    
                 </div>
-            </div>
 
-            <div class="plantBox">
-                <img src="images/filler.png" alt=""/>
-                <h2 class="plantName">Mega Cush</h2>
-                <h4 class="secondName">(common weed, Stone Leaf)</h4>
-                <div class="plantProperties">
-                    <img src="images/filler.png" alt="Bush"/>
-                    <img src="images/filler.png" alt="2 to 5 m"/>
-                    <img src="images/filler.png" alt="2 to 8 m"/>
-                    <img src="images/filler.png" alt="Idk,Bush-like"/>
-                    <img src="images/filler.png" alt="Growing Fast I Hope"/>
-                    <img src="images/filler.png" alt="Green"/>
-                    <img src="images/filler.png" alt="Partial Light"/>
-                </div>
+                <a href="/ByName?name=<%= plants[i].name %>" class="read-more"> Check its profile </a>
             </div>
+            <% } }%>
         </div>
     </section> 
     

@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AUB Landscape - Home</title>
-    
-    <link rel="stylesheet" href="css/global styles/header-footer.css">
+     <link rel="stylesheet" href="css/global styles/header-footer.css">
     <link rel="stylesheet" href="css/home/home.css">
     <link rel="stylesheet" href="css/home/search-btns.css">
     <script src="js/global js/footer.js"></script>
@@ -49,11 +47,11 @@
     <section id="spotlight-search">
         <div id="spotlight-left">
             <h3>Spot Light</h3>
-            <img src="" alt="">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis neque unde omnis, architecto impedit
-                sit tempore ea, magnam illum praesentium quisquam. Culpa id laborum voluptatem totam atque consequuntur
-                repellat quis. <a href="#" class="read-more"><img src="css/global images/external-link.png" alt="read more"> More</a>
-            </p>
+            <img src="./images/Acer davidii.jpg" alt="" height="300px" width="300px"> 
+            <h1 style="font-weight: bold; color: white; background-color: #74c69dff;">  <%= spotLight.name %> </h1>
+            <p>   <%= spotLight.description %>  <br>  
+                <a href="/ByName?name=<%= spotLight.name %>" class="read-more"> Check its profile </a>
+             </p>
         </div>
         <div id="search-right">
             <div id="navigation_links">
@@ -110,7 +108,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="ByLetter?letter=K">
+                        <a href="/ByLetter?letter=K">
                             K
                         </a>
                     </li>

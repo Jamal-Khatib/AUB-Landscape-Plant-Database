@@ -25,6 +25,12 @@ mongoose.connect(URI)
 
 app.get("/",(req,res) => 
 {
+    Plant.find()
+    .then((result)=> {
+        var theRandomNumber = Math.floor(Math.random() * result.length) ;
+        var spotLight = result[theRandomNumber] ; 
+        res.render("home",{spotLight}) ; 
+    })
     // const p = new Plant(
     //     {
     //         name : "Acer davidii" ,
@@ -52,7 +58,6 @@ app.get("/",(req,res) =>
     //     console.log("Mmmmmmmmmmmmmmmmmm") ; 
     // })
 
-    res.render("home") ; 
 
 });
 
@@ -66,19 +71,32 @@ app.get("/plant",(req,res) =>
    
 });
 
-app.get("/ByLetter",(req,res) =>
-{   
-    let letter = url.parse(req.url,true).query.letter; //get letter from url
 
-    if(!letter.match(/^[a-zA-Z]{1}$/)){   //check if it is a singular letter
-        res.render("home");             //render home if not
-        // console.log(letter);
-    }
-    else{
-        res.render("filter", {firstLetter: letter});
-    }
+app.get("/ByLetter",(req,res) => {
+    var letter = req.query.letter ; 
+    Plant.find() 
+    .then((result) => 
+    {
+        var plants = [] ; 
+        for(let i = 0 ; i<result.length ; i++)
+        {
+            if(result[i].name[0]==letter)
+            {
+                plants.push(result[i]) ; 
+            }
+        }
 
-});
+        res.render("filter",{plants:plants, firstLetter: letter}) ; 
+        // for(let j = 0 ; j<plants.length ; j++)
+        // {
+        //     console.log(plants[j].name) ; 
+        // }
+    })
+})
 
-app.listen(8080);
-console.log("server started");
+app.get("/ByName",(req,res) => {
+    Plant.find({"name": req.query.name})
+    .then((result) => {
+        res.render("plant_profile", {plant: result[0]}) ;
+    })
+})
