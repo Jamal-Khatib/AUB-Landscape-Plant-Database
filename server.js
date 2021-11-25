@@ -85,7 +85,7 @@ app.get("/ByLetter",(req,res) => {
             }
         }
 
-        res.render("filter",{plants:plants, firstLetter: letter}) ; 
+        res.render("plants_by_letter",{plants:plants, firstLetter: letter}) ; 
     })
 })
 
@@ -122,7 +122,12 @@ app.get("/ByName",(req,res) => {
 })
 //To get the page with input fields 
 app.get("/searchName",(req,res)=> {
-    res.render("searchName");
+    res.render("search_by_name");
 })
+
+app.get("/searchCriteria",(req,res)=> {
+    res.render("search_by_criteria");
+})
+
 
 
