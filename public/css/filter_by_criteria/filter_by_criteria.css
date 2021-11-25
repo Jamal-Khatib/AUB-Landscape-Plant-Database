@@ -1,0 +1,21 @@
+#tabs {
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+    justify-content: space-evenly;
+}
+
+.tabs-selected {
+    background-color: black;
+}
+.tabs-done {
+    background-color: gray;
+}
+
+.tab-container-selected {
+    display: block;
+}
+
+.tab-container-hidden {
+    display: none;
+}
