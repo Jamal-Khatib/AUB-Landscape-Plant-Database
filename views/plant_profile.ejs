@@ -37,7 +37,7 @@
     <main>
         <div id="search-btn-container">
             <div class="search-btn-buffer">
-                <a class="search-btn" href="#">
+                <a class="search-btn" href="/searchName">
                     <p>Filter By Name</p>
                     <img src="css/global images/tab_search.png" alt="magnifying glass">
                 </a>
@@ -75,7 +75,24 @@
 
             <div id="plant-content">
                 <div id="plant-images">
-                    >>Images Here
+                    <% 
+                    for(let j = 0 ; j< plant.pictures; j++) {  %>
+                        
+                        <% if(j==0) 
+                        { %>
+                            <img  src="./images/<%=plant.name%>0.jpg" style="height: 250px" > 
+                        <% } else if(j==1) { %>
+                            <img  src="./images/<%=plant.name%>1.jpg" style="height:250px" >  
+                        <% } else { %>
+                            <img  src="./images/<%=plant.name%>2.jpg" style="height: 250px" >  
+                        <% } %>
+                       
+                   
+
+                        <% } %>
+
+
+
                 </div>
                 <div id="plant-tab">
                     <div id="plant-tab-landscape">

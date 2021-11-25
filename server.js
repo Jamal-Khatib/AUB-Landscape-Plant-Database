@@ -9,7 +9,6 @@ app.set("view engine","ejs") ;
 app.use(express.static("public"))  ;
 
 
-
 const URI = "mongodb+srv://jamal:j1a2m3a4l5@cluster0.6vwvu.mongodb.net/firstDB?retryWrites=true&w=majority" ; 
 app.use(express.urlencoded({extended:true})) ; 
 
@@ -87,16 +86,43 @@ app.get("/ByLetter",(req,res) => {
         }
 
         res.render("filter",{plants:plants, firstLetter: letter}) ; 
-        // for(let j = 0 ; j<plants.length ; j++)
-        // {
-        //     console.log(plants[j].name) ; 
-        // }
     })
 })
 
+
 app.get("/ByName",(req,res) => {
-    Plant.find({"name": req.query.name})
-    .then((result) => {
-        res.render("plant_profile", {plant: result[0]}) ;
-    })
+
+    //Search 
+    if(req.query.name!="" && req.query.scientific_name=="")
+    {
+        Plant.find({"name": req.query.name})
+        .then((result) => {
+            res.render("plant_profile", {plant: result[0]}) ;
+        })
+    }
+    else if(req.query.name=="" && req.query.scientific_name!="")
+    {
+        Plant.find({"scientific_name": req.query.scientific_name})
+        .then((result) => {
+            res.render("plant_profile", {plant: result[0]}) ;
+        })
+    }
+
+    //Get profile by clicking on check its profile
+    else
+    {
+        Plant.find({"name": req.query.name})
+        .then((result) => {
+            res.render("plant_profile", {plant: result[0]}) ;
+        })
+        
+    }
+   
+   
 })
+//To get the page with input fields 
+app.get("/searchName",(req,res)=> {
+    res.render("searchName");
+})
+
+

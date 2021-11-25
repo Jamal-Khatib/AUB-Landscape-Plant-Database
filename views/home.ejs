@@ -47,10 +47,10 @@
     <section id="spotlight-search">
         <div id="spotlight-left">
             <h3>Spot Light</h3>
-            <img src="./images/Acer davidii.jpg" alt="" height="300px" width="300px"> 
+            <img src="./images/<%=spotLight.name%>0.jpg" alt="" height="300px" width="300px"> 
             <h1 style="font-weight: bold; color: white; background-color: #74c69dff;">  <%= spotLight.name %> </h1>
-            <p>   <%= spotLight.description %>  <br>  
-                <a href="/ByName?name=<%= spotLight.name %>" class="read-more"> Check its profile </a>
+            <p>   <%= spotLight.description %>  <br>  <br> 
+                <a href="/ByName?name=<%= spotLight.name %>" style="color: white; background-color: #2d6a4fff; font-size: larger; padding: 10px 10px;;"> Check its profile </a>
              </p>
         </div>
         <div id="search-right">
@@ -191,8 +191,8 @@
             </div>
             <div id="search-btn-container">
                 <div class="search-btn-buffer">
-                    <a class="search-btn" href="#">
-                        <p>Filter By Name</p>
+                    <a class="search-btn" href="/searchName">
+                        <p>Filter By Name</p> 
                         <img src="css/global images//tab_search.png" alt="magnifying glass">
                     </a>
                 </div>
@@ -229,6 +229,7 @@
             </a>
         </div>
     </footer>
+
 </body>
 
 </html>

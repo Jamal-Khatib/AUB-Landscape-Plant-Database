@@ -20,7 +20,7 @@ const plantSchema = new Schema(
         canopy : {type:String},
         height : {type:String},
         spread : {type:String},
-
+        pictures: {type: Number}
     }, 
     {timestamps: true}
 ) ; 
