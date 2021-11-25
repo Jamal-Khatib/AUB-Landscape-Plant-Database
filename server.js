@@ -56,8 +56,6 @@ app.get("/",(req,res) =>
     // .catch((error)=> {
     //     console.log("Mmmmmmmmmmmmmmmmmm") ; 
     // })
-
-
 });
 
 app.get("/plant",(req,res) => 

@@ -1,3 +1,15 @@
+/* colors {
+    --nyanza: #d8f3dcff;
+    --turquoise-green: #b7e4c7ff;
+    --turquoise-green-2: #95d5b2ff;
+    --ocean-green: #74c69dff;
+    --ocean-green-2: #52b788ff;
+    --illuminating-emerald: #40916cff;
+    --bottle-green: #2d6a4fff;
+    --brunswick-green: #1b4332ff;
+    --dark-jungle-green: #081c15ff;
+} */
+
 main {
     display: flex;
     margin: 10px 50px 10px 0;
@@ -7,6 +19,7 @@ main {
 #profile-container {
     flex: auto;
     border: 5px solid black;
+    padding: 5px;
 }
 h3 {
     background-color: black;
@@ -31,11 +44,20 @@ h4 {
 #tabs-container {
     display: flex;
     justify-content: space-evenly;
-    background-color: grey;
+    background-color: #2d6a4fff;
     width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.tab {
+    color: white;
+    background-color: #40916cff;
+    border-color: #52b788ff;
+    padding: 2px;
 }
 .selected-tab {
-    background-color: red;
+    background-color: #95d5b2ff;
+    border-color: #b7e4c7ff;
 }
 
 /* Tabs */
@@ -44,6 +66,7 @@ h4 {
 }
 #plant-images {
     flex: auto;
+    width: 50%;
 }
 #plant-tab {
 }
@@ -56,4 +79,23 @@ h4 {
 }
 #plant-tab-horticulture {
     display: none;
+}
+
+#image-sidebar{
+
+    display: inline-flex;
+    float: left;
+    -webkit-flex-direction: column; 
+    flex-direction: column;
+    width: 10%;
+}
+.side-image {
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+#zoomedImage {
+    display: inline-block;
+    margin-left: 5px;
+    width: 80%;
 }
