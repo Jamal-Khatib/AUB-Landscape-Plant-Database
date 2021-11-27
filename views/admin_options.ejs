@@ -1,71 +1,45 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/home/home.css">
-    <link rel="stylesheet" href="css/home/search-btns.css">
-    <script src="js/global js/footer.js"></script>
+    <title>AUB Landscape - Options</title>
+    <link rel="stylesheet" href="css/admin_options/admin_options.css">
 </head>
 
-<style>
-    .option 
-    {
-        background-color: #40916cff ; 
-        padding: 30px ; 
-        height:150px ; 
-        width:300px ;
-        margin:30px 50px ; 
-        font-size: xx-large ;  
-        color: white ;  
-        text-align: center ;
-    }
-    a{
-        text-align: center ;
-    }
-    div.option:hover {
-  transform: translateY(-30px);
-  transition: linear 0.3s;
-    }
-</style>
 <body>
-
 
     <%- include("./partials/header.ejs") %>
 
+        <section id="options-container">
+            <a href="/add_plant">
+                <div class="option">
+                    Add a new plant
+                </div>
+            </a>
 
-    <section  style="text-align: center; padding: 150px;display: flex; flex-direction: row">
+            <a href="/edit_plant">
+                <div class="option">
+                    Edit a plant
+                </div>
+            </a>
 
-    <a href="/add_plant">  
-        <div class="option" >
-        Add a new plant
-        </div>
-    </a>
-      
-    <a href="/edit_plant"> 
-       <div class="option">
-        Edit a  plant
-        </div>
-    </a> 
+            <a href="/delete_plant">
+                <div class="option">
+                    Delete a plant
+                </div>
+            </a>
 
-    <a href="/delete_plant">   
-        <div class="option">
-         Delete a  plant
-        </div>
-    </a> 
+            <a href="">
+                <div class="option">
+                    Reply to messages
+                </div>
+            </a>
+        </section>
 
-    <a href="">  
-        <div class="option">
-       Reply to messages 
-        </div>
-    </a> 
+        <%- include("./partials/footer.ejs") %>
 
-
-
-    </section>
-
-    <%- include("./partials/footer.ejs") %>
-    
 </body>
+
 </html>

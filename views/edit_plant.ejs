@@ -1,90 +1,93 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="css/home/home.css">
-    <link rel="stylesheet" href="css/home/search-btns.css">
-    <script src="js/global js/footer.js"></script>
+    <title>AUB Landscape - Edit Plant</title>
 </head>
+
 <body>
 
     <%- include("./partials/header.ejs") %>
 
-    <h1 style="font-size:50px; background-color:#40916cff ; color: white; text-align:center; font-weight:bold"> Edit a plant</h1>
+        <h1 style="font-size:50px; background-color:#40916cff ; color: white; text-align:center; font-weight:bold"> Edit
+            a plant</h1>
 
-    <form  style="text-align: center; padding-top:100px ; padding-bottom:50px ;" method="POST" action="/delete_plant">
+        <form style="text-align: center; padding-top:100px ; padding-bottom:50px ;" method="POST"
+            action="/delete_plant">
 
-        <label for="name" style="font-size: xx-large;"> Plant Name </label> &nbsp; 
-        <input name="name" id="name" style="font-size: x-large"> <br> <br>
-        <label for="property" style="font-size: xx-large; margin-left: -70px;"> Select Property</label> &nbsp;
-        <select name="property" id="property" style="font-size: x-large"> 
+            <label for="name" style="font-size: xx-large;"> Plant Name </label> &nbsp;
+            <input name="name" id="name" style="font-size: x-large"> <br> <br>
+            <label for="property" style="font-size: xx-large; margin-left: -70px;"> Select Property</label> &nbsp;
+            <select name="property" id="property" style="font-size: x-large">
 
-            <option> french_name</option>
-            <option>pronounciation </option>
-            <option> type</option>
-            <option>origin </option>
-            <option> heat</option>
-            <option>hardiness </option>
-            <option>uses </option>
-            <option> growth_rate</option>
-            <option>tree_shape </option>
-            <option> canopy</option>
-            <option> height</option>
-            <option>spread</option>
-            <option>Leaf_Arrangement</option>
-            <option>Leaf_Venation</option>
-            <option> Leaf_Persistance</option>
-            <option> Leaf_Type</option>
-            <option>Leaf_Blade </option>
-            <option> Leaf_Shape</option>
-            <option>Leaf_Margins </option>
-            <option> Leaf_Texture</option>
-            <option>Leaf_Scent </option>
-            <option> color_growing_season </option>
-            <option>color_changing_season </option>
-            <option> Flower_Showiness</option>
-            <option>Flower_Size </option>
-            <option> Flower_Type</option>
-            <option> Flower_Scent</option>
-            <option>  Flower_Color</option>
-            <option>seasons </option>
-            <option> Fruit_Type </option>
-            <option>Fruit_Showiness </option>
-            <option>Fruit_Size </option>
-            <option> Fruit_Color</option>
-            <option>Heat_Tolerance</option>
-            <option>Drought_Tolerance</option>
-            <option> Salt_Tolerance </option>
-            <option>  Soil_Requirements</option>
-            <option> Soil_Ph_Requirements </option>
-            <option>Water_Requirements </option>
-            <option>Light_Requirements </option>
-            <option>Invasive_Potential </option>
-            <option>Prunning_Requirements</option>
-            <option> Edible_Parts</option>
-            <option> Plant_Propagation</option>
+                <option> french_name</option>
+                <option>pronounciation </option>
+                <option> type</option>
+                <option>origin </option>
+                <option> heat</option>
+                <option>hardiness </option>
+                <option>uses </option>
+                <option> growth_rate</option>
+                <option>tree_shape </option>
+                <option> canopy</option>
+                <option> height</option>
+                <option>spread</option>
+                <option>Leaf_Arrangement</option>
+                <option>Leaf_Venation</option>
+                <option> Leaf_Persistance</option>
+                <option> Leaf_Type</option>
+                <option>Leaf_Blade </option>
+                <option> Leaf_Shape</option>
+                <option>Leaf_Margins </option>
+                <option> Leaf_Texture</option>
+                <option>Leaf_Scent </option>
+                <option> color_growing_season </option>
+                <option>color_changing_season </option>
+                <option> Flower_Showiness</option>
+                <option>Flower_Size </option>
+                <option> Flower_Type</option>
+                <option> Flower_Scent</option>
+                <option> Flower_Color</option>
+                <option>seasons </option>
+                <option> Fruit_Type </option>
+                <option>Fruit_Showiness </option>
+                <option>Fruit_Size </option>
+                <option> Fruit_Color</option>
+                <option>Heat_Tolerance</option>
+                <option>Drought_Tolerance</option>
+                <option> Salt_Tolerance </option>
+                <option> Soil_Requirements</option>
+                <option> Soil_Ph_Requirements </option>
+                <option>Water_Requirements </option>
+                <option>Light_Requirements </option>
+                <option>Invasive_Potential </option>
+                <option>Prunning_Requirements</option>
+                <option> Edible_Parts</option>
+                <option> Plant_Propagation</option>
 
-        </select> <br> <br>
+            </select> <br> <br>
 
-        <label for="newProperty" style="font-size: xx-large;"> New Value </label> &nbsp; 
-        <input id="newProperty" style="font-size: x-large" name="newProperty" > <br> <br>
+            <label for="newProperty" style="font-size: xx-large;"> New Value </label> &nbsp;
+            <input id="newProperty" style="font-size: x-large" name="newProperty"> <br> <br>
 
-        <button id="button" style="background-color:#40916cff ; color: white; padding: 25px 50px ; font-size: xx-large;"> Update</button>
+            <button id="button"
+                style="background-color:#40916cff ; color: white; padding: 25px 50px ; font-size: xx-large;">
+                Update</button>
 
 
-    </form>
+        </form>
 
-    <%- include("./partials/footer.ejs") %>
-    
+        <%- include("./partials/footer.ejs") %>
+
 </body>
+
 </html>
 
 <style>
-      #button:hover {
+    #button:hover {
         transform: translateY(-10px);
-  transition: linear 0.3s;
-      }
+        transition: linear 0.3s;
+    }
 </style>

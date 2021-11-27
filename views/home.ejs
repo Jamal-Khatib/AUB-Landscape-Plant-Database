@@ -6,203 +6,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUB Landscape - Home</title>
-     <!-- <link rel="stylesheet" href="css/global styles/header-footer.css"> -->
     <link rel="stylesheet" href="css/home/home.css">
     <link rel="stylesheet" href="css/home/search-btns.css">
-    <script src="js/global js/footer.js"></script>
 </head>
 
 <body>
-   <%- include("./partials/header.ejs") %>
+    <%- include("./partials/header.ejs") %>
 
-    <section id="about-us">
-        <div>
-            <h3>About us</h3>
-            <p style="font-size:xx-large">The Department of landscape design and ecosystem management has developed this plant database site in
-                line
-                with the department’s ecological orientation thus the database is focusing on native, naturalized, and
-                ecologically suitable plant species for the middle east region. <a href="#" class="read-more"><img
-                        src="css/global images/external-link.png" alt="read more"> More</a> </p>
+        <div id="get-admin-btn">
+            <a href="/adminCheck"> Get Admin Privileges</a>
         </div>
-    </section>
 
-    <div style="margin-left: 50px; color: white; background-color: #2d6a4fff; font-size:xx-large; width:350px; padding-left: 10px;">
-        <a href="/adminCheck"> Get Admin Priveleges</a>
-    </div>
-   
-
-    <section id="spotlight-search">
-        <div id="spotlight-left">
-            <h3>Spot Light</h3>
-            <img src="./images/<%=spotLight.name%>0.jpg" alt="" height="300px" width="300px"> 
-            <h1 style="font-weight: bold; color: white; background-color: #74c69dff;">  <%= spotLight.name %> </h1>
-            <p>   <%= spotLight.description %>  <br>  <br> 
-                <a href="/ByName?name=<%= spotLight.name %>" style="color: white; background-color: #2d6a4fff; font-size: larger; padding: 10px 10px;;"> Check its profile </a>
-             </p>
-        </div>
-        <div id="search-right">
-            <div id="navigation_links">
-                <h3>Search Plants Alphabetically</h3>
-                <ul>
-                    <li class="first">
-                        <a href="/ByLetter?letter=A">
-                            A
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=B">
-                            B
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=C">
-                            C
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=D">
-                            D
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=E">
-                            E
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=F">
-                            F
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=G">
-                            G
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=H">
-                            H
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=I">
-                            I
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=J">
-                            J
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=K">
-                            K
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=L">
-                            L
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=M">
-                            M
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=N">
-                            N
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=O">
-                            O
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=P">
-                            P
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=Q">
-                            Q
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=R">
-                            R
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=S">
-                            S
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=T">
-                            T
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=U">
-                            U
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=V">
-                            V
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=W">
-                            W
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=X">
-                            X
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=Y">
-                            Y
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/ByLetter?letter=Z">
-                            Z
-                        </a>
-                    </li>
-                </ul>
+        <section id="about-us">
+            <div>
+                <h3>About us</h3>
+                <p>The Department of landscape design and ecosystem management has developed
+                    this plant database site in
+                    line
+                    with the department’s ecological orientation thus the database is focusing on native, naturalized,
+                    and
+                    ecologically suitable plant species for the middle east region. <a href="#" class="read-more"><img
+                            src="images/external-link.png" alt="read more"> More</a> </p>
             </div>
-            <div id="search-btn-container">
-                <div class="search-btn-buffer">
-                    <a class="search-btn" href="/searchName">
-                        <p>Filter By Name</p> 
-                        <img src="css/global images//tab_search.png" alt="magnifying glass">
-                    </a>
-                </div>
-                <div class="search-btn-buffer">
-                    <a class="search-btn" href="/searchCriteria">
-                        <p>Filter By Criteria</p>
-                        <img src="css/global images/tab_criteria.png" alt="barcode">
-                    </a>
-                </div>
-                <div class="search-btn-buffer">
-                    <a class="search-btn" href="#">
-                        <p>Filter By Identification</p>
-                        <img src="css/global images/tab_identification.png" alt="fingerprint">
-                    </a>
-                </div>
-            </div>
-            
-        </div>
-        
-    </section>
+        </section>
 
-    
-    <%- include("./partials/footer.ejs") %>
+        <section id="spotlight-search">
+            <div id="spotlight-left">
+                <h3>Spot Light</h3>
+                <img src="./images/<%=spotLight.name%>0.jpg" alt="" height="300px" width="300px">
+                <h1>
+                    <%= spotLight.name %>
+                </h1>
+                <p>
+                    <%= spotLight.description %> <br> <br>
+                        <a href="/ByName?name=<%= spotLight.name %>"> Check its profile </a>
+                </p>
+            </div>
+            <div id="search-right">
+
+                <%- include("./partials/alphabet_links.ejs") %>
+
+                    <div id="search-btn-container">
+                        <div class="search-btn-buffer">
+                            <a class="search-btn" href="/searchName">
+                                <p>Filter By Name</p>
+                                <img src="images/filter_buttons/tab_search.png" alt="magnifying glass">
+                            </a>
+                        </div>
+                        <div class="search-btn-buffer">
+                            <a class="search-btn" href="/searchCriteria">
+                                <p>Filter By Criteria</p>
+                                <img src="images/filter_buttons/tab_criteria.png" alt="barcode">
+                            </a>
+                        </div>
+                        <div class="search-btn-buffer">
+                            <a class="search-btn" href="#">
+                                <p>Filter By Identification</p>
+                                <img src="images/filter_buttons/tab_identification.png" alt="fingerprint">
+                            </a>
+                        </div>
+                    </div>
+            </div>
+
+        </section>
+
+        <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>

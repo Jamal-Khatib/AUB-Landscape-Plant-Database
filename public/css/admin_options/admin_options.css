@@ -1,0 +1,27 @@
+#options-container {
+  text-align: center;
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.option {
+  background-color: #40916cff;
+  padding: 30px;
+  height: 150px;
+  width: 300px;
+  margin: 30px 50px;
+  font-size: xx-large;
+  color: white;
+  text-align: center;
+  box-shadow: 1px 1px black;
+}
+a {
+  text-align: center;
+}
+div.option:hover {
+  transform: translateY(-30px);
+  transition: linear 0.3s;
+}

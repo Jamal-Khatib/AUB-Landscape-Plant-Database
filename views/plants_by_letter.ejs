@@ -5,62 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AUB Landscape - Search</title>
-
-    <!-- <link rel="stylesheet" href="css/global styles/header-footer.css"> -->
-    <link rel="stylesheet" href="css/filter/filter.css">
-    <link rel="stylesheet" href="css/global styles/zoom.css"
-    <script src="js/global js/footer.js"></script>
+    <link rel="stylesheet" href="css/plants_by_letter/plants_by_letter.css">
+    <link rel="stylesheet" href="css/global styles/zoom.css">
 </head>
+
 <body>
     <%- include("./partials/header.ejs") %>
 
-
-    <section id="plantLetter">
-        <div>
-            <h3 id="startingLetter">Plants starting with: <%=firstLetter%></h3>
-
-            <% if(plants.length==0) { %>
-
-                <h1  style="color: white; background-color: black; "> No Plants are in our database</h1>
-
-            <% } else  { 
-
-            for(let i = 0 ; i<plants.length ; i++) {  %>
-
-             
-            <div class="plantBox">
-                <img alt="" src="images/<%=plants[i].name%>0.jpg"/>
-                <h2 class="plantName"> <%= plants[i].name %></h2>
-                <h4 class="secondName"><%= plants[i].scientific_name %></h4>
-                <div class="plantProperties" >
-                <% 
-                for(let j = 0 ; j< plants[i].pictures; j++) {  %>
-                    
-                    <% if(j==0) 
-                    { %>
-                        <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>0.jpg" > 
-                    <% } else if(j==1) { %>
-                        <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>1.jpg" >  
-                    <% } else { %>
-                        <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>2.jpg">  
-                    <% } %>
-                   
-                             
-                    <% } %>
-
-
-                    <p style="margin-top: 30px;"> 
-                        <a href="/ByName?name=<%= plants[i].name %>" class="read-more" style="color: white; background-color: #2d6a4fff; font-size: larger; padding: 10px 10px;"> Check its profile </a>
-                    </p>
-                </div>   
-            </div>
-            <% } }%>
+        <div id="alphabet-links-container">
+            <%- include("./partials/alphabet_links.ejs") %>
         </div>
-    </section>    
 
-    <%- include("./partials/footer.ejs") %>
+        <section id="plantLetter">
+            <div>
+                <h3 id="startingLetter">Plants starting with: <%=firstLetter%>
+                </h3>
 
+                <% if(plants.length==0) { %>
+
+                    <h1 style="color: white; background-color: black; "> No Plants are in our database</h1>
+
+                    <% } else { for(let i=0 ; i<plants.length ; i++) { %>
+
+
+                        <div class="plantBox">
+                            <img alt="" src="images/<%=plants[i].name%>0.jpg" />
+                            <h2 class="plantName">
+                                <%= plants[i].name %>
+                            </h2>
+                            <h4 class="secondName">
+                                <%= plants[i].scientific_name %>
+                            </h4>
+                            <div class="plantProperties">
+                                <% for(let j=0 ; j< plants[i].pictures; j++) { %>
+
+                                    <% if(j==0) { %>
+                                        <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>0.jpg">
+                                        <% } else if(j==1) { %>
+                                            <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>1.jpg">
+                                            <% } else { %>
+                                                <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>2.jpg">
+                                                <% } %>
+
+
+                                                    <% } %>
+
+
+                                                        <p style="margin-top: 30px;">
+                                                            <a href="/ByName?name=<%= plants[i].name %>"
+                                                                class="read-more"
+                                                                style="color: white; background-color: #2d6a4fff; font-size: larger; padding: 10px 10px;">
+                                                                Check its profile </a>
+                                                        </p>
+                            </div>
+                        </div>
+                        <% } }%>
+            </div>
+        </section>
+
+        <%- include("./partials/footer.ejs") %>
 </body>
+
 </html>

@@ -1,42 +1,38 @@
 <html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUB Landscape - Admin Login</title>
+    <link rel="stylesheet" href="css/admin_check/admin_check.css">
+    <script src="js/admin_check/admin_check.js"></script>
+</head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUB Landscape - Home</title>
-        <link rel="stylesheet" href="css/home/home.css">
-        <link rel="stylesheet" href="css/home/search-btns.css">
-        <script src="js/global js/footer.js"></script>
-
-        <script src="js/admin/admin_check.js"></script>
-        
-    </head>
-    
 <body id="body">
 
     <%- include("./partials/header.ejs") %>
 
-    <section style="text-align: center; padding-top:100px ; padding-bottom:100px ;">
+        <section>
 
-        <label style="color: green; font-size: x-large"> Please enter your crendentials to get your rights as an admin </label>
-        <br> <br>
-      
-            <label for="name" style="font-size: xx-large;"> Admin Name</label>  &nbsp;&nbsp;
-            <input name="name" id="name" style="font-size: x-large">
+            <label id="prompt"> Please enter your crendentials to get your rights as an
+                admin </label>
+            <br> <br>
+
+            <label for="name"> Admin Name</label> &nbsp;&nbsp;
+            <input name="name" id="name">
             <!-- <br> -->&nbsp;&nbsp;
-            <label for="password" style="font-size: xx-large;"> Password</label>  &nbsp;&nbsp;
-            <input name="password" id="password" style="font-size: x-large">
-            <br> <br> <br> 
-            <button style="background-color:#40916cff ; color: white; padding: 25px 50px ; font-size: xx-large;" id="myButton" onclick="check" > Get Admin Priveleges </button>
+            <label for="password"> Password</label> &nbsp;&nbsp;
+            <input name="password" id="password">
             <br> <br> <br>
-            <span id="answer" style="font-size: xx-large; color:white; background-color:red"> </span>
-     
-    </section>
-  
+            <button id="myButton" onclick="check"> Get Admin Priveleges </button>
+            <br> <br> <br>
+            <span id="answer"> </span>
 
-    <!-- <%- include("./partials/footer.ejs") %> -->
-    
+        </section>
+
+        <%- include("./partials/footer.ejs") %>
+
 </body>
+
 </html>
