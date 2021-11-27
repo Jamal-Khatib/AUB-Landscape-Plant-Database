@@ -6,43 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search By Criteria</title>
-    <link rel="stylesheet" href="css/filter_by_criteria/filter_by_criteria.css">
-    <script src="js/filter_by_criteria/tabs.js"></script>
+    <link rel="stylesheet" href="css/search_by_criteria/search_by_criteria.css">
+    <script src="js/global js/footer.js"></script>
+    <script src="js/search_by_criteria/tabs.js"></script>
+
 </head>
 
 <body>
     <%- include("./partials/header.ejs") %>
 
-    <ul id="tabs">
-        <li><a href="#step-1" class="tabs-selected" isdone="1" rel="1"><span>Country</span></a></li>
-        <li><a href="#step-2" class="tabs-done" isdone="1" rel="2"><span>Climate</span></a></li>
-        <li><a href="#step-3" class="tabs-done" isdone="1" rel="3"><span>Basic Info</span></a></li>
-        <li><a href="#step-4" class="tabs-done" isdone="1" rel="4"><span>Uses</span></a></li>
-        <li><a href="#step-5" class="tabs-done" isdone="1" rel="5"><span>Size\Shape</span></a></li>
-        <li><a href="#step-6" class="tabs-done" isdone="1" rel="6"><span>Leaf</span></a></li>
-        <li><a href="#step-7" class="tabs-done" isdone="1" rel="7"><span>Flower</span></a></li>
-        <li><a href="#step-8" class="tabs-done" isdone="1" rel="8"><span>Fruit</span></a></li>
-        <li><a href="#step-9" class="tabs-done" isdone="1" rel="9"><span>Trunk</span></a></li>
-        <li><a href="#step-10" class="tabs-done" isdone="1" rel="10"><span>Management</span></a></li>
-    </ul>
+        <ul id="tabs">
+            <li><button id="tab-btn-1" class="tabs-selected">Country</button></li>
+            <li><button id="tab-btn-2" class="tabs-done">Climate</button></li>
+            <li><button id="tab-btn-3" class="tabs-done">Basic Info</button></li>
+            <li><button id="tab-btn-4" class="tabs-done">Uses</button></li>
+            <li><button id="tab-btn-5" class="tabs-done">Size\Shape</button></li>
+            <li><button id="tab-btn-6" class="tabs-done">Leaf</button></li>
+            <li><button id="tab-btn-7" class="tabs-done">Flower</button></li>
+            <li><button id="tab-btn-8" class="tabs-done">Fruit</button></li>
+            <li><button id="tab-btn-9" class="tabs-done">Trunk</button></li>
+            <li><button id="tab-btn-10" class="tabs-done">Management</button></li>
+        </ul>
 
-    <div id="tab-container">
+        <div id="tab-container">
+            <div id="tab-1" class="tab-container-selected"> Tab 1
+                <div id="main_map">
+                    <%- include("./partials/map_countries.ejs") %>
+                </div>
+            </div>
+            <div id="tab-2" class="tab-container-hidden"> Tab 2 </div>
+            <div id="tab-3" class="tab-container-hidden"> Tab 3 </div>
+            <div id="tab-4" class="tab-container-hidden"> Tab 4 </div>
+            <div id="tab-5" class="tab-container-hidden"> Tab 5 </div>
+            <div id="tab-6" class="tab-container-hidden"> Tab 6 </div>
+            <div id="tab-7" class="tab-container-hidden"> Tab 7 </div>
+            <div id="tab-8" class="tab-container-hidden"> Tab 8 </div>
+            <div id="tab-9" class="tab-container-hidden"> Tab 9 </div>
+            <div id="tab-10" class="tab-container-hidden"> Tab 10 </div>
 
-        <div id="step-1" class="tab-container-selected"> Tab 1 </div>
-        <div id="step-2" class="tab-container-hidden"> Tab 2 </div>
-        <div id="step-3" class="tab-container-hidden"> Tab 3 </div>
-        <div id="step-4" class="tab-container-hidden"> Tab 4 </div>
-        <div id="step-5" class="tab-container-hidden"> Tab 5 </div>
-        <div id="step-6" class="tab-container-hidden"> Tab 6 </div>
-        <div id="step-7" class="tab-container-hidden"> Tab 7 </div>
-        <div id="step-8" class="tab-container-hidden"> Tab 8 </div>
-        <div id="step-9" class="tab-container-hidden"> Tab 9 </div>
-        <div id="step-10" class="tab-container-hidden"> Tab 10 </div>
+            <p>Test Search By Criteria</p>
+        </div>
 
-        <p>Test Search By Criteria</p>
-    </div>
-
-    <%- include("./partials/footer.ejs") %>
+        <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
