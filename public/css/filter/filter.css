@@ -13,7 +13,9 @@ h2, h4 {
 
 .plantBox {
     display: inline-block;
+    flex-flow: column;
     width: 300px;
+    height: 600px;
     text-align: center;
     vertical-align: top;
 }

@@ -9,17 +9,36 @@
     <link rel="stylesheet" href="css/global styles/header-footer.css">
     <link rel="stylesheet" href="css/global styles/search-buttons.css">
     <link rel="stylesheet" href="css/plant_profile/plant-profile.css">
-    <script src="js/plant_profile/tabs.js"></script>
     <script src="js/global js/footer.js"></script>
+    <script src="js/plant_profile/tabs.js"></script>
+    <script src="js/plant_profile/imageDisplays.js"></script>
 </head>
 
 <body>
-    <%- include("./partials/header.ejs") %>
+    <header id="header">
+        <a id="logo" href="/">
+            <img src="css/global images/AUB logo.png" alt="AUB Logo">
+            <p>Landscape Design & Ecosystem Management</p>
+            <p>Faculty of Agriculture & Food Sciences</p>
+        </a>
+        <div id="nav-container">
+            <h1>AUB Landscape Plant Database</h1>
+            <nav id="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Useful Links</a></li>
+                <li><a href="#">Image Gallery</a></li>
+                <li><a href="#">Popular Plant Categories</a></li>
+                <li><a href="#">Glossary</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <div id="search-btn-container">
             <div class="search-btn-buffer">
-                <a class="search-btn" href="/searchName">
+                <a class="search-btn" href="#">
                     <p>Filter By Name</p>
                     <img src="css/global images/tab_search.png" alt="magnifying glass">
                 </a>
@@ -41,40 +60,35 @@
         <div id="profile-container">
             <h3>Plant Profile</h3>
 
-            <!-- <h4 id="plant-name">>>Plant Name</h4> -->
             <h4 id="plant-name"><%= plant.name %></h4>
-            <!-- <h4 id="plant-sc-name">>>Plant Scientific Name</h4> -->
-            <h4 id="plant-sc-name"><%= plant.scientific_name %></h4>
 
+            <h4 id="plant-sc-name"><%= plant.scientific_name %></h4>
 
             <p id="plant-description"><%= plant.description %></p>
 
             <div id="tabs-container">
-                <button class="selected-tab tab" value="1">Landscape Information</button>
+                <button class="tab selected-tab" value="1">Landscape Information</button>
                 <button class="tab" value="2">Botanical Description</button>
                 <button class="tab" value="3">Horticulture Management</button>
             </div>
 
             <div id="plant-content">
                 <div id="plant-images">
-                    <% 
-                    for(let j = 0 ; j< plant.pictures; j++) {  %>
-                        
-                        <% if(j==0) 
-                        { %>
-                            <img  src="./images/<%=plant.name%>0.jpg" style="height: 250px" > 
-                        <% } else if(j==1) { %>
-                            <img  src="./images/<%=plant.name%>1.jpg" style="height:250px" >  
-                        <% } else { %>
-                            <img  src="./images/<%=plant.name%>2.jpg" style="height: 250px" >  
-                        <% } %>
-                       
-                   
+                    <div id="image-sidebar">
+                        <% 
+                        for(let j = 0 ; j< plant.pictures; j++) {  %>                     
+                            <% if(j==0) 
+                            { %>
+                                <img class="side-image" alt="" src="./images/<%=plant.name%>0.jpg"> 
+                            <% } else if(j==1) { %>
+                                <img class="side-image" alt="" src="./images/<%=plant.name%>1.jpg">  
+                            <% } else { %>
+                                <img class="side-image" alt="" src="./images/<%=plant.name%>2.jpg">  
+                            <% } %>
 
-                        <% } %>
-
-
-
+                            <% } %>
+                    </div>
+                    <img id="zoomedImage" alt="" src="./images/<%=plant.name%>0.jpg">
                 </div>
                 <div id="plant-tab">
                     <div id="plant-tab-landscape">
@@ -161,7 +175,23 @@
         </div>
     </main>
 
-    <%- include("./partials/footer.ejs") %>
+    <footer id="footer">
+        <img id="footer-bkg" src="css/global images/footer-bg-colored.png" alt="background">
+        <div>
+            <a rel="noopener noreferrer" href="http://www.aub.edu.lb/main/aub_files/Pages/copyright.aspx" target="_blank">
+                &copy; Copyright
+            </a>
+            <a href="/Pages/Citing">
+                Citing the plant Database
+            </a>
+            <a href="/Pages/Acknowledgments">
+                Acknowledgments
+            </a>
+            <a href="/ContactUs">
+                Contact Us
+            </a>
+        </div>
+    </footer>
 </body>
 
 </html>
