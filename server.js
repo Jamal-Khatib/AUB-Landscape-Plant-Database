@@ -2,6 +2,7 @@ const express = require("express") ;
 const mongoose = require("mongoose") ; 
 const Plant = require("./models/plant") ; 
 const url = require("url") ;
+const ejs = require("ejs");
 
 const app = new express() ; 
 app.use(express.urlencoded({extended:true})) ; 
@@ -128,6 +129,245 @@ app.get("/searchName",(req,res)=> {
 app.get("/searchCriteria",(req,res)=> {
     res.render("search_by_criteria");
 })
+
+app.get("/adminCheck",(req,res)=> {
+    res.render("admin_check") ; 
+})
+
+
+app.post("/adminCheck",(req,res)=> {
+    var real_name = "myAdmin" ; 
+    var real_password = "12345" ; 
+
+
+    var name = req.body.name ; 
+    var password = req.body.password ; 
+
+    if(name.trim()==real_name && password.trim()==real_password)
+    {
+        res.json({"answer":"yes"}) ; 
+        // res.render("admin_options") ; 
+    }
+    else
+    {
+        res.json({"answer":"no"}) ; 
+    }
+
+})
+
+app.get("/adminOptions", (req, res)=>{
+    console.log("Marilyn") ; 
+    res.render("admin_options") ; 
+    console.log("Melsiiiiiiiiiiiiiio") ; 
+})
+
+app.get("/add_plant",(req,res) => {
+    res.render("add_plant") ;
+})
+
+app.get("/edit_plant",(req,res) => {
+    res.render("edit_plant") ;
+})
+
+app.post("/edit_plant",(req,res) => {
+
+    var name = req.body.name ; 
+    var property = req.body.property ; 
+    var value = req.body.newProperty ;
+
+
+    switch(property) 
+    {
+        case "french_name": 
+            Plant.findOneAndUpdate({ "name":name}, { "french_name":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "pronounciation": 
+            Plant.findOneAndUpdate({ "name":name}, { "pronounciation":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "type": 
+            Plant.findOneAndUpdate({ "name":name}, { "type":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "origin": 
+            Plant.findOneAndUpdate({ "name":name}, { "origin":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ;
+            
+        case "heat": 
+            Plant.findOneAndUpdate({ "name":name}, { "heat":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "hardiness": 
+            Plant.findOneAndUpdate({ "name":name}, { "hardiness":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "uses": 
+            Plant.findOneAndUpdate({ "name":name}, { "uses":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "growth_rate": 
+            Plant.findOneAndUpdate({ "name":name}, { "growth_rate":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "tree_shape": 
+            Plant.findOneAndUpdate({ "name":name}, { "tree_shape":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "canopy": 
+            Plant.findOneAndUpdate({ "name":name}, { "canopy":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "height": 
+            Plant.findOneAndUpdate({ "name":name}, { "height":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "spread": 
+            Plant.findOneAndUpdate({ "name":name}, { "spread":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "Leaf_Arrangement": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Arrangement":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+            
+        case "Leaf_Venation": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Venation":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "Leaf_Persistance": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Persistance":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "Leaf_Type": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Type":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+        case "Leaf_Blade": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Blade":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+            
+            case "Leaf_Shape": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Shape":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Leaf_Margins": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Margins":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Leaf_Texture": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Texture":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Leaf_Scent": 
+            Plant.findOneAndUpdate({ "name":name}, { "Leaf_Scent":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "color_growing_season": 
+            Plant.findOneAndUpdate({ "name":name}, { "color_growing_season":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "color_changing_season": 
+            Plant.findOneAndUpdate({ "name":name}, { "color_changing_season":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Flower_Showiness": 
+            Plant.findOneAndUpdate({ "name":name}, { "Flower_Showiness":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Flower_Size": 
+            Plant.findOneAndUpdate({ "name":name}, { "Flower_Size":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Flower_Type": 
+            Plant.findOneAndUpdate({ "name":name}, { "Flower_Type":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Flower_Scent": 
+            Plant.findOneAndUpdate({ "name":name}, { "Flower_Scent":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Flower_Color": 
+            Plant.findOneAndUpdate({ "name":name}, { "Flower_Color":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "seasons": 
+            Plant.findOneAndUpdate({ "name":name}, { "seasons":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Fruit_Type": 
+            Plant.findOneAndUpdate({ "name":name}, { "Fruit_Type":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Fruit_Showiness": 
+            Plant.findOneAndUpdate({ "name":name}, { "Fruit_Showiness":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Fruit_Size": 
+            Plant.findOneAndUpdate({ "name":name}, { "Fruit_Size":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Fruit_Color": 
+            Plant.findOneAndUpdate({ "name":name}, { "Fruit_Color":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Heat_Tolerance": 
+            Plant.findOneAndUpdate({ "name":name}, { "Heat_Tolerance":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Drought_Tolerance": 
+            Plant.findOneAndUpdate({ "name":name}, { "Drought_Tolerance":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Salt_Tolerance": 
+            Plant.findOneAndUpdate({ "name":name}, { "Salt_Tolerance":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Soil_Requirements": 
+            Plant.findOneAndUpdate({ "name":name}, { "Soil_Requirements":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Soil_Ph_Requirements": 
+            Plant.findOneAndUpdate({ "name":name}, { "Soil_Ph_Requirements":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+            
+            case "Water_Requirements": 
+            Plant.findOneAndUpdate({ "name":name}, { "Water_Requirements":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Light_Requirements": 
+            Plant.findOneAndUpdate({ "name":name}, { "Light_Requirements":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Invasive_Potential": 
+            Plant.findOneAndUpdate({ "name":name}, { "Invasive_Potential":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Prunning_Requirements": 
+            Plant.findOneAndUpdate({ "name":name}, { "Prunning_Requirements":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Edible_Parts": 
+            Plant.findOneAndUpdate({ "name":name}, { "Edible_Parts":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+
+            case "Plant_Propagation": 
+            Plant.findOneAndUpdate({ "name":name}, { "Plant_Propagation":value }, null, function (err, docs) {res.render("admin_options") ; })
+            break ; 
+    }
+
+   
+})
+
+app.get("/delete_plant",(req,res) => {
+    res.render("delete_plant")
+})
+
+app.post("/delete_plant",(req,res) => {
+    var name = req.body.name ;
+    Plant.findOneAndRemove({ "name": name }, function(err, member) { res.render("admin_options") } ) 
+})
+
+
 
 
 

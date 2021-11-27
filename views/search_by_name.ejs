@@ -16,15 +16,15 @@
 
 <body>
     <%- include("./partials/header.ejs") %>
-    <section style="text-align: center; padding-top:100px ; padding-bottom:100px ;">
+    <section style="text-align: center; padding-top:100px ; padding-bottom:400px ;">
        <label style="color: green; font-size: x-large"> You can either search by Orginal Name or Scientific Name</label>
         <br> <br>
        <form method="GET" action="/ByName"> 
             <label for="name" style="font-size: xx-large;"> Original Name</label> 
-            <input name="name" id="name">
+            <input name="name" id="name" style="font-size: x-large">
             <!-- <br> -->
             <label for="scientific_name" style="font-size: xx-large;"> Scientific Name</label> 
-            <input name="scientific_name" id="scientific_name" >
+            <input name="scientific_name" id="scientific_name"style="font-size: x-large" >
             <br> <br> <br>
             <button style="font-size: x-large;"> Search </button>
         </form>
