@@ -37,9 +37,6 @@
 .country {
   opacity: 0;
 }
-.country:hover {
-  opacity: 1;
-}
 
 #map_1 {
   position: absolute;
