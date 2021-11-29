@@ -5,6 +5,7 @@ function $(e) {
 window.onload = () => {
     switchTabs();
     highlightCountry();
+    toggleImgSelect();
 };
 
 function switchTabs() {
@@ -31,6 +32,7 @@ function switchTabs() {
     }
 }
 
+// ------------------------------------------------------------Tab 1
 function highlightCountry() {
     //function to toggle country shape opacity
     function toggleShape(shape, forced = -1) {
@@ -138,5 +140,22 @@ function highlightCountry() {
                 console.error("Shape did not get selected correctly")
             }
         }
+    }
+}
+
+// ------------------------------------------------------------Tab 2
+function toggleImgSelect() {
+    var listOfChecks = document.querySelectorAll("form > div > label > input");
+    for (let i = 0; i < listOfChecks.length; i++) {
+        const check = listOfChecks[i];
+        check.addEventListener("change", function (e) {
+            const div = check.parentNode.parentNode;
+            if (div.className == "selected") {
+                div.className = "unselected";
+            }
+            else if (div.className == "unselected") {
+                div.className = "selected";
+            }
+        })
     }
 }
