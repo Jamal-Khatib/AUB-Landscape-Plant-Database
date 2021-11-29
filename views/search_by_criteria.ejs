@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search By Criteria</title>
     <link rel="stylesheet" href="css/search_by_criteria/search_by_criteria.css">
+    <link rel="stylesheet" href="css/search_by_criteria/tab-1.css">
     <script src="js/search_by_criteria/tabs.js"></script>
 </head>
 
@@ -27,9 +28,35 @@
         </ul>
 
         <div id="tab-container">
-            <div id="tab-1" class="tab-container-selected"> Tab 1
-                <div id="main_map">
-                    <%- include("./partials/map_countries.ejs") %>
+            <div id="tab-1" class="tab-container-selected">
+
+                <div id="tab-1-content">
+                    <ul id="country-list">
+                        <li alt="3">Algeria</li>
+                        <li alt="22">Djibouti</li>
+                        <li alt="7">Egypt</li>
+                        <li alt="10">Iraq</li>
+                        <li alt="14">Jordan</li>
+                        <li alt="16">Kuwait</li>
+                        <li alt="12">Lebanon</li>
+                        <li alt="6">Libya</li>
+                        <li alt="1">Mauritania</li>
+                        <li alt="4">Morroco</li>
+                        <li alt="18">Oman</li>
+                        <li alt="11">Palestine</li>
+                        <li alt="13">Qatar</li>
+                        <li alt="15">Saudi Arabia</li>
+                        <li alt="23">Somalia</li>
+                        <li alt="8">Sudan</li>
+                        <li alt="9">Syria</li>
+                        <li alt="5">Tunisia</li>
+                        <li alt="17">UAE</li>
+                        <li alt="19">Yemen</li>
+                    </ul>
+
+                    <div id="main_map">
+                        <%- include("./partials/map_countries.ejs") %>
+                    </div>
                 </div>
             </div>
             <div id="tab-2" class="tab-container-hidden"> Tab 2 </div>
@@ -41,8 +68,6 @@
             <div id="tab-8" class="tab-container-hidden"> Tab 8 </div>
             <div id="tab-9" class="tab-container-hidden"> Tab 9 </div>
             <div id="tab-10" class="tab-container-hidden"> Tab 10 </div>
-
-            <p>Test Search By Criteria</p>
         </div>
 
         <%- include("./partials/footer.ejs") %>

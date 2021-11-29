@@ -1,60 +1,63 @@
-window.onload = function () {
-    let currentTabBtn = document.getElementById("tab-btn-1");
-    let currentTabContainer = document.getElementById("tab-1");
+function $(e) {
+  return document.getElementById(e);
+}
 
-    listOfTabs = document.querySelectorAll("ul#tabs > li");
-    for (let i = 0; i < listOfTabs.length; i++) {
-        const tab = listOfTabs[i];
-        tab.onclick = function (e) {
-            if (e.target == currentTabBtn) return;
-            //highlight active button only
-            e.target.className = "tabs-selected";
-            currentTabBtn.className = "tabs-done";
-            currentTabBtn = e.target;
+window.onload = () => {
+  switchTabs();
+  highlightCountry();
+};
 
-            //show respective tab
-            const tabNum = e.target.id.split("-")[2];
-            let newTabContainer = document.getElementById(`tab-${tabNum}`);
-            newTabContainer.className = "tab-container-selected";
-            currentTabContainer.className = "tab-container-hidden";
-            currentTabContainer = newTabContainer;
-        };
-    }
-};
-document.getElementById("map").onclick = function (event) {
-    bounds = this.getBoundingClientRect();
-    var left = bounds.left;
-    var top = bounds.top;
-    var x = event.pageX - left;
-    var y = event.pageY - top;
-    var cw = this.clientWidth;
-    var ch = this.clientHeight;
-    var iw = this.naturalWidth;
-    var ih = this.naturalHeight;
-    var px = (x / cw) * iw;
-    var py = (y / ch) * ih;
-    alert(
-        "click on " +
-            this.tagName +
-            " at pixel (" +
-            px +
-            "," +
-            py +
-            ") mouse pos (" +
-            x +
-            "," +
-            y +
-            ") relative to boundingClientRect at (" +
-            left +
-            "," +
-            top +
-            ") client image size: " +
-            cw +
-            " x " +
-            ch +
-            " natural image size: " +
-            iw +
-            " x " +
-            ih
-    );
-};
+function switchTabs() {
+  let currentTabBtn = $("tab-btn-1");
+  let currentTabContainer = $("tab-1");
+
+  listOfTabs = document.querySelectorAll("ul#tabs > li");
+  for (let i = 0; i < listOfTabs.length; i++) {
+    const tab = listOfTabs[i];
+    tab.onclick = function (e) {
+      if (e.target == currentTabBtn) return;
+      //highlight active button only
+      e.target.className = "tabs-selected";
+      currentTabBtn.className = "tabs-done";
+      currentTabBtn = e.target;
+
+      //show respective tab
+      const tabNum = e.target.id.split("-")[2];
+      let newTabContainer = $(`tab-${tabNum}`);
+      newTabContainer.className = "tab-container-selected";
+      currentTabContainer.className = "tab-container-hidden";
+      currentTabContainer = newTabContainer;
+    };
+  }
+}
+
+function highlightCountry() {
+  let countryBtns = $("country-list").children;
+  let countryShapes = document.querySelectorAll(".country");
+
+  for (let i = 0; i < countryBtns.length; i++) {
+    const btn = countryBtns[i];
+    const correspondingShape = document.querySelector(
+      `#map_${btn.getAttribute("alt")}`
+    ).children[0].children[0];
+
+    //On button hover -> highlight country shape
+    btn.onmouseover = () => {
+      correspondingShape.style.opacity = 1;
+    };
+    btn.onmouseleave = () => {
+      if (correspondingShape.getAttribute("lastSelected") != "true") {
+        correspondingShape.style.opacity = 0;
+      }
+    };
+
+    //On button click -> leave shape highlighted
+    btn.onclick = () => {
+      correspondingShape.style.opacity = 1;
+      correspondingShape.setAttribute("lastSelected", "true");
+    };
+  }
+  for (let i = 0; i < countryShapes.length; i++) {
+    countryShapes[i].onmouseover = () => {};
+  }
+}
