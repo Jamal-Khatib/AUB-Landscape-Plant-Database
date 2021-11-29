@@ -12,15 +12,16 @@ colors {
 
 /* Admin Button */
 #get-admin-btn {
-  display: flex;
-  justify-content: flex-end;
+  float: right;
+  margin-top: 70px;
+  margin-right: 50px;
 }
 #get-admin-btn > a {
   color: white;
   background-color: #2d6a4fff;
   border: #1b4332ff solid 2px;
   box-shadow: 3px 3px 2px #40916cff;
-  font-size: xx-large;
+  font-size: x-large;
   padding: 20px;
   margin: 5px 5px 0 0;
 }
@@ -29,7 +30,7 @@ colors {
 }
 
 #about-us {
-  width: 100%;
+  width: 80%;
   padding: 50px;
   border-bottom: 5px dashed rgba(255, 255, 255, 0.486);
 }
@@ -38,13 +39,17 @@ colors {
   color: rgb(255, 255, 255);
 }
 #about-us > div > p {
-  font-size: xx-large;
+  font-size: 16px;
 }
-.read-more {
+#show-more {
   color: #2d6a4f;
+  font-size: 14px;
 }
-.read-more > img {
-  width: 15px;
+#show-more:hover {
+  cursor: pointer;
+}
+#hidden-about-us {
+  display: none;
 }
 
 /* Section Spotlight + searching */
