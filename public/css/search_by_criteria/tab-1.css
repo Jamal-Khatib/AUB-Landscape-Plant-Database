@@ -22,6 +22,7 @@
 }
 #country-list > li:hover {
   background-color: #2d6a4fff;
+  cursor: pointer;
 }
 
 /* Map */
@@ -36,6 +37,9 @@
 
 .country {
   opacity: 0;
+}
+.country:hover {
+  cursor: pointer;
 }
 
 #map_1 {

@@ -16,7 +16,7 @@
 
         <ul id="tabs">
             <li><button id="tab-btn-1" class="tabs-selected">Country</button></li>
-            <li><button id="tab-btn-2" class="tabs-done">Climate</button></li>
+            <!-- <li><button id="tab-btn-2" class="tabs-done">Climate</button></li> -->
             <li><button id="tab-btn-3" class="tabs-done">Basic Info</button></li>
             <li><button id="tab-btn-4" class="tabs-done">Uses</button></li>
             <li><button id="tab-btn-5" class="tabs-done">Size\Shape</button></li>
@@ -29,7 +29,6 @@
 
         <div id="tab-container">
             <div id="tab-1" class="tab-container-selected">
-
                 <div id="tab-1-content">
                     <ul id="country-list">
                         <li alt="3">Algeria</li>
@@ -55,12 +54,14 @@
                     </ul>
 
                     <div id="main_map">
-                        <%- include("./partials/map_countries.ejs") %>
+                        <%- include("./partials/search_by_criteria/map_countries.ejs") %>
                     </div>
                 </div>
             </div>
-            <div id="tab-2" class="tab-container-hidden"> Tab 2 </div>
-            <div id="tab-3" class="tab-container-hidden"> Tab 3 </div>
+            <!-- <div id="tab-2" class="tab-container-hidden"></div> -->
+            <div id="tab-3" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/basic_info.ejs") %>
+            </div>
             <div id="tab-4" class="tab-container-hidden"> Tab 4 </div>
             <div id="tab-5" class="tab-container-hidden"> Tab 5 </div>
             <div id="tab-6" class="tab-container-hidden"> Tab 6 </div>
