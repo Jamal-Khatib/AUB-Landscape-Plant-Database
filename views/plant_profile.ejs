@@ -17,13 +17,13 @@
         <main>
             <div id="search-btn-container">
                 <div class="search-btn-buffer">
-                    <a class="search-btn" href="#">
+                    <a class="search-btn" href="/searchName">
                         <p>Filter By Name</p>
                         <img src="images/filter_buttons/tab_search.png" alt="magnifying glass">
                     </a>
                 </div>
                 <div class="search-btn-buffer">
-                    <a class="search-btn" href="#">
+                    <a class="search-btn" href="/searchCriteria">
                         <p>Filter By Criteria</p>
                         <img src="images/filter_buttons/tab_criteria.png" alt="barcode">
                     </a>
@@ -122,62 +122,61 @@
                         </div>
                         <div id="plant-tab-botanical">
                             <h5>Foliage</h5>
-                            <p class="label">Leaf Arrangement: <span id="leaf-arrangement">>>Leaf Arrangement</span></p>
-                            <p class="label">Leaf Venation: <span id="leaf-venation">>>Leaf Venation</span></p>
-                            <p class="label">Leaf Persistance: <span id="leaf-persistance">>>Leaf Persistance</span></p>
-                            <p class="label">Leaf Type: <span id="leaf-type">>>Leaf Type</span></p>
-                            <p class="label">Leaf Blade: <span id="leaf-blade">>>Leaf Blade</span></p>
-                            <p class="label">Leaf Shape: <span id="leaf-shape">>>Leaf Shape</span></p>
-                            <p class="label">Leaf Margins: <span id="leaf-margins">>>Leaf Margins</span></p>
-                            <p class="label">Leaf Texture: <span id="leaf-texture">>>Leaf Texture</span></p>
-                            <p class="label">Leaf Scent: <input id="leaf-scent">>>Leaf Scent</span></p>
-                            <p class="label">Color (growing season): <span id="color-growing-season">>>Color (growing
-                                    season)</span></p>
-                            <p class="label">Color (changing season): <span id="color-changing-season">>>Color (changing
-                                    season)</span></p>
+                            <p class="label">Leaf Arrangement: <span id="leaf-arrangement"><%= plant.Leaf_Arrangement %></span></p>
+                            <p class="label">Leaf Venation: <span id="leaf-venation"><%= plant.Leaf_Venation %></span></p>
+                            <p class="label">Leaf Persistance: <span id="leaf-persistance"><%= plant.Leaf_Persistance %></span></p>
+                            <p class="label">Leaf Type: <span id="leaf-type"><%= plant.Leaf_Type %></span></p>
+                            <p class="label">Leaf Blade: <span id="leaf-blade"><%= plant.Leaf_Blade %></span></p>
+                            <p class="label">Leaf Shape: <span id="leaf-shape"><%= plant.Leaf_Shape %></span></p>
+                            <p class="label">Leaf Margins: <span id="leaf-margins"><%= plant.Leaf_Margins %></span></p>
+                            <p class="label">Leaf Texture: <span id="leaf-texture"><%= plant.Leaf_Texture %></span></p>
+                            <p class="label">Leaf Scent: <%= plant.Leaf_Scent %></span></p>
+                            <p class="label">Color (growing season): <span id="color-growing-season"><%= plant.color_growing_season %></span></p>
+                            <p class="label">Color (changing season): <span id="color-changing-season"><%= plant.color_changing_season %>
+                                    </span></p>
                             <hr>
                             <h5>Flower</h5>
-                            <p class="label">Flower Showiness: <span id="flower-showiness">>>Flower Showiness</span></p>
-                            <p class="label">Flower Size Range: <span id="flower-size-range">>>Flower Size Range</span>
+                            <p class="label">Flower Showiness: <span id="flower-showiness"><%= plant.Flower_Showiness %></span></p>
+                            <p class="label">Flower Size Range: <span id="flower-size-range"><%= plant.Flower_Size %></span>
                             </p>
-                            <p class="label">Flower Type: <span id="flower-type">>>Flower Type</span></p>
-                            <p class="label">Flower Scent: <span id="flower-scent">>>Flower Scent</span></p>
-                            <p class="label">Flower Color: <span id="flower-color">>>Flower Color</span></p>
-                            <p class="label">Seasons: <span id="seasons">>>Seasons</span></p>
+                            <p class="label">Flower Type: <span id="flower-type"><%= plant.Flower_Type %></span></p>
+                            <p class="label">Flower Scent: <span id="flower-scent"><%= plant.Flower_Scent %></span></p>
+                            <p class="label">Flower Color: <span id="flower-color"><%= plant.Flower_Color %></span></p>
+                            <p class="label">Seasons: <span id="seasons"><%= plant.seasons %></span></p>
                             <hr>
                             <h5>Fruit</h5>
-                            <p class="label">Fruit Type: <span id="fruit-type">>>Fruit Type</span></p>
-                            <p class="label">Fruit Showiness: <span id="fruit-showiness">>>Fruit Showiness</span></p>
-                            <p class="label">Fruit Size Range: <span id="fruit-size-range">>>Fruit Size Range</span></p>
-                            <p class="label">Fruit Color: <span id="fruit-color">>>Fruit Color</span></p>
+                            <p class="label">Fruit Type: <span id="fruit-type"><%= plant.Fruit_Type %></span></p>
+                            <p class="label">Fruit Showiness: <span id="fruit-showiness"><%= plant.Fruit_Showiness %></span></p>
+                            <p class="label">Fruit Size Range: <span id="fruit-size-range"><%= plant.Fruit_Size %></span></p>
+                            <p class="label">Fruit Color: <span id="fruit-color"><%= plant.Fruit_Color %></span></p>
                         </div>
                         <div id="plant-tab-horticulture">
                             <h5>Tolerance</h5>
-                            <p class="label">Heat Tolerance: <span id="heat-tolerance">>>Heat Tolerance</span></p>
-                            <p class="label">Drought Tolerance: <span id="drought-tolerance">>>Drought Tolerance</span>
+                            <p class="label">Heat Tolerance: <span id="heat-tolerance"><%= plant.Heat_Tolerance %></span></p>
+                            <p class="label">Drought Tolerance: <span id="drought-tolerance"><%= plant.Drought_Tolerance %></span>
                             </p>
-                            <p class="label">Salt Tolerance: <span id="salt-tolerance">>>Salt Tolerance</span></p>
+                            <p class="label">Salt Tolerance: <span id="salt-tolerance"><%= plant.Salt_Tolerance %></span></p>
                             <hr>
                             <h5>Requirement</h5>
-                            <p class="label">Soil Requirements: <span id="soil-requirements">>>Soil Requirements</span>
+                            <p class="label">Soil Requirements: <span id="soil-requirements"><%= plant.Soil_Requirements %></span>
                             </p>
-                            <p class="label">Soil Ph Requirements: <span id="soil-ph-requirements">>>Soil Ph
-                                    Requirements</span></p>
-                            <p class="label">Water Requirements: <span id="water-requirements">>>Water
-                                    Requirements</span>
+                            <p class="label">Soil Ph Requirements: <span id="soil-ph-requirements"><%= plant.Soil_Ph_Requirements %>
+                                    </span></p>
+                            <p class="label">Water Requirements: <span id="water-requirements"><%= plant.Water_Requirements %>
+                                    </span>
                             </p>
-                            <p class="label">Light Requirements: <span id="light-requirements">>>Light
-                                    Requirements</span>
+                            <p class="label">Light Requirements: <span id="light-requirements"><%= plant.Light_Requirements %>
+                                    </span>
                             </p>
                             <hr>
                             <h5>Management</h5>
-                            <p class="label">Invasive Potential: <span id="invasive-potential">>>Invasive
-                                    Potential</span>
+                            <p class="label">Invasive Potential: <span id="invasive-potential"><%= plant.Invasive_Potential %>
+                                    </span>
                             </p>
-                            <p class="label">Prunning Requirements: <span id="prunning-requirements">>>Prunning
-                                    Requirements</span></p>
-                            <p class="label">Edible Parts: <span id="edible-parts">>>Edible Parts</span></p>
-                            <p class="label">Plant Propagation: <span id="plant-propagation">>>Plant Propagation</span>
+                            <p class="label">Prunning Requirements: <span id="prunning-requirements"><%= plant.Prunning_Requirements %>
+                                    </span></p>
+                            <p class="label">Edible Parts: <span id="edible-parts"><%= plant.Edible_Parts %></span></p>
+                            <p class="label">Plant Propagation: <span id="plant-propagation"><%= plant.Plant_Propagation %></span>
                             </p>
                         </div>
                     </div>
@@ -193,3 +192,9 @@
 </body>
 
 </html>
+
+<style> 
+span{
+    color: #40916cff;
+}
+</style>

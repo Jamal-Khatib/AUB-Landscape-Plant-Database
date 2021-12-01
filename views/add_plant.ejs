@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUB Landscape - Add Plant</title>
+    <link rel="stylesheet" href="css/global styles/search-buttons.css">
+    <link rel="stylesheet" href="css/plant_profile/plant-profile.css">
+    <script src="js/plant_profile/plant_profile.js"></script>
 </head>
 
 <body>
@@ -13,11 +16,134 @@
         <h1 style="font-size:xx-large; background-color:#40916cff ; color: white; text-align:center; font-weight:bold">
             Create a new Plant</h1>
 
-        <section>
-            <add></add>
-        </section>
+            <form method="POST" action="/add_plant" enctype="multipart/form-data">
+
+            <main>
+    
+                <div id="profile-container">
+                    <h3>Plant Info</h3>
+    
+                    <label> Plant Name</label>
+                    <input id="name" name="name" required>  
+
+                    <label>Scientific Name </label>
+                    <input id="scientific_name" name="scientific_name" required>
+    
+                    <label> Description</label>
+                    <textarea id="description" name="description"></textarea>
+
+
+                    <input type="file" name="image">
+                    <br> <br>
+                    <div id="tabs-container">
+                        <button class="tab selected-tab" value="1">Landscape Information</button>
+                        <button class="tab" value="2">Botanical Description</button>
+                        <button class="tab" value="3">Horticulture Management</button>
+                    </div>
+    
+                    
+                    <div id="plant-content">
+                       
+                        <div id="plant-tab">
+                            <div id="plant-tab-landscape">
+                                <p class="label">French Name:  <input id="french_name" name="french_name" required></p>
+                                <p class="label">Pronounciation: <input id="pronounciation" name="pronounciation"required> </p>
+                               
+                                <p class="label">Plant Type: <input id="pronounciation"name="type"required></p>
+                                <p class="label">Origin: <input id="origin"name="origin"required></p>
+                                <p class="label">Heat Zones: <input id="heat"name="heat"required></p>
+                                <p class="label">Hardiness Zones: <input id="hardiness"name="hardiness"required></p>
+                                <p class="label">Uses: <input id="uses"name="uses"required></p>
+                                <p class="label">Growth Rate: <input id="growth_rate"name="growth_rate"required></p>
+                                <p class="label">Tree Shape: <input id="tree_shape"name="tree_shape"required></p>
+                                <p class="label">Canopy Texture: <input id="canopy"name="canopy"required></p>
+                                <p class="label">Height at Maturity: <input id="height" name="height"required>
+                                </p>
+                                <p class="label">Spread at Maturity: <input id="spread" name="spread" required>
+                                </p>
+                            </div>
+                            <div id="plant-tab-botanical">
+                                
+                                <p class="label">Leaf Arrangement: <input id="Leaf_Arrangement" name="Leaf_Arrangement" required></p>
+                                <p class="label">Leaf Venation: <input id="Leaf_Venation"name="Leaf_Venation"required></p>
+                                <p class="label">Leaf Persistance: <input id="Leaf_Persistance"name="Leaf_Persistance"required></p>
+                                <p class="label">Leaf Type: <input id="Leaf_Type"name="Leaf_Type"required></p>
+                                <p class="label">Leaf Blade: <input id="Leaf_Blade"name="Leaf_Blade"required></p>
+                                <p class="label">Leaf Shape:<input id="Leaf_Shape"name="Leaf_Shape"required> </p>
+                                <p class="label">Leaf Margins: <input id="Leaf_Margins"name="Leaf_Margins"required></p>
+                                <p class="label">Leaf Texture: <input id="Leaf_Texture"name="Leaf_Texture"required></p>
+                                <p class="label">Leaf Scent: <input id="Leaf_Scent"name="Leaf_Scent"required> </p>
+                                <p class="label">Color (growing season):  <input id="color_growing_season"name="color_growing_season"required></p>
+                                <p class="label">Color (changing season):  <input id="color_changing_season"name="color_changing_season"required>
+                                        </p>
+                               
+                               
+                                <p class="label">Flower Showiness:  <input id="Flower_Showiness"name="Flower_Showiness"required></p>
+                                <p class="label">Flower Size Range:  <input id="Flower_Size"name="Flower_Size"required>
+                                </p>
+                                <p class="label">Flower Type:  <input id="Flower_Type"name="Flower_Type"required></p>
+                                <p class="label">Flower Scent: <input id="Flower_Scent"name="Flower_Scent"required> </p>
+                                <p class="label">Flower Color:  <input id="Flower_Color"name="Flower_Color"required></p>
+                                <p class="label">Seasons:  <input id="seasons"name="seasons"required> </p>
+                                
+                               
+                                <p class="label">Fruit Type: <input id="Fruit_Type"name="Fruit_Type"required> </p>
+                                <p class="label">Fruit Showiness:  <input id="Fruit_Showiness"name="Fruit_Showiness"required></p>
+                                <p class="label">Fruit Size Range:  <input id="Fruit_Size"name="Fruit_Size"required></p>
+                                <p class="label">Fruit Color: <input id="Fruit_Color"name="Fruit_Color"required> </p>
+                            </div>
+                            <div id="plant-tab-horticulture">
+                                <p class="label">Heat Tolerance: <input id="Heat_Tolerance"name="Heat_Tolerance"required></p>
+                                <p class="label">Drought Tolerance: <input id="Drought_Tolerance"name="Drought_Tolerance" required>
+                                </p>
+                                <p class="label">Salt Tolerance: <input id="Salt_Tolerance"name="Salt_Tolerance" required></p>
+                               
+                                <p class="label">Soil Requirements: <input id="Soil_Requirements"name="Soil_Requirements" required>
+                                </p>
+                                <p class="label">Soil Ph Requirements: <input id="Soil_Ph_Requirements"name="Soil_Ph_Requirements" required>
+                                      </p>
+                                <p class="label">Water Requirements: <input id="Water_Requirements"name="Water_Requirements"required>
+                                       
+                                </p>
+                                <p class="label">Light Requirements: <input id="Light_Requirements" name="Light_Requirements"required>
+                                       
+                                </p>
+                                
+                                <p class="label">Invasive Potential: <input id="Invasive_Potential" name="Invasive_Potential"required>
+                                </p>
+                                <p class="label">Prunning Requirements: <input id="Prunning_Requirements" name="Prunning_Requirements"required></p>
+                                <p class="label">Edible Parts: <input id="Edible_Parts" name="Edible_Parts"required></p>
+                                <p class="label">Plant Propagation: <input id="Plant_Propagation" name="Plant_Propagation"required>
+                                </p>
+                            </div>
+                        </div>
+                    </div> 
+    
+            </main>
+
+        <!-- <input type="submit" style="background-color: #40916cff; margin-left: 80%; margin-bottom: 1%; height: 100px; width: 200px;" > -->
+
+        <button type="submit"  style="background-color: #40916cff; margin-left: 80%; margin-bottom: 1%; height: 100px; width: 200px;" > Submit</button>
+       
+        </form>
 
         <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
+
+<style>
+    p,label{
+        font-size: larger;
+        margin-bottom: 10px;
+    }
+    input,textarea
+    {
+        font-size: larger;
+    }
+    input
+    {
+        margin-left: 50px;
+    }
+    
+</style>

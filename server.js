@@ -3,6 +3,8 @@ const mongoose = require("mongoose") ;
 const Plant = require("./models/plant") ; 
 const url = require("url") ;
 const ejs = require("ejs");
+const multer = require("multer") ; 
+const path = require("path") ; 
 
 const app = new express() ; 
 app.use(express.urlencoded({extended:true})) ; 
@@ -33,21 +35,53 @@ app.get("/",(req,res) =>
     })
     // const p = new Plant(
     //     {
-    //         name : "Acer davidii" ,
-    //         scientific_name : "Snakebark Maple",
-    //         description : "Snakebark maple got its name from its snake-like bark.It is an upright tree , often multi-trunked tree",
-    //         french_name : "Érable de David",
-    //         pronounciation: "AY-ser dah-VID-ee-eye" ,
-    //         type : "Tree" ,
-    //         origin : "China, Myanmar" ,
-    //         heat : "1 to 7",
-    //         hardiness :  "5 to 9",
-    //         uses : "Topiary, Bonsai, Espalier, Border Plant, Shade, Street",
-    //         growth_rate : "Slow" ,
-    //         tree_shape : "Round" ,
-    //         canopy : "Coarse",
-    //         height :  "5 to 8 m",
-    //         spread  :  "3 to 5 meters, 5 to 8 meters"
+    //         name : "Abelia x grandiflora",
+    //         scientific_name : "Glossy Abelia",
+    //         description : "Abelia x grandiflora is a fine-textured, semi-evergreen, sprawling shr...",
+    //         french_name : "Not Available",
+    //         pronounciation: "uh-BEEL-ee-uh gran-dif-FLOR-uh",
+    //         type : "Shrub",
+    //         origin : "Developed in Italy",
+    //         heat : "6 to 9",
+    //         hardiness : "5 to 9",
+    //         uses : "Hedge, Specimen, Border Plant, Mass",
+    //         growth_rate : "Moderate",
+    //         tree_shape : "Round",
+    //         canopy : "Symmetrical",
+    //         height :  "0.5 to 1 m",
+    //         spread  :  "1.5 to 3 meters",
+    //         Leaf_Arrangement : "Opposite",
+    //         Leaf_Venation : "Pinnate",
+    //         Leaf_Persistance : "Semi Evergreen",
+    //         Leaf_Type : "Simple",
+    //         Leaf_Blade : "Less than 5",
+    //         Leaf_Shape :"Lanceolate",
+    //         Leaf_Margins:"Serrate",
+    //         Leaf_Texture: "Smooth",
+    //         Leaf_Scent: "No Fragance",
+    //         color_growing_season:"Green",
+    //         color_changing_season: "Red",
+    //         Flower_Showiness : "Yes",
+    //     Flower_Size : "1.5 - 3",
+    //     Flower_Type : "Solitary",
+    //     Flower_Scent : "Monoecious (Bisexual)",
+    //     Flower_Color : "White, Pink",
+    //     seasons: "Spring, Summer",
+    //     Fruit_Type :"NA",
+    //     Fruit_Showiness : "Yes",
+    //     Fruit_Size : "0 - 1.5",
+    //     Fruit_Color: "NA",
+    //     Heat_Tolerance : "No",
+    //     Drought_Tolerance : "No",
+    //     Salt_Tolerance : "Poor",
+    //     Soil_Requirements : "Clay, Loam, Sand",
+    //     Soil_Ph_Requirements :"Acidic, Neutral",
+    //     Water_Requirements : "Moderate",
+    //     Light_Requirements : "Full, Part",
+    //     Invasive_Potential : "No",
+    //     Prunning_Requirements :"Needed, to develop a strong structure",
+    //     Edible_Parts :"NA",
+    //     Plant_Propagation : "Cutting",
     //     }
     // ); 
     // p.save() 
@@ -59,15 +93,15 @@ app.get("/",(req,res) =>
     // })
 });
 
-app.get("/plant",(req,res) => 
-{
-    Plant.find({"name":"Abelia x grandiflora"}) 
-    .then((result)=> {
-        console.log("This isss the result : "+(result[0].name)) ; 
-        res.render("plant_profile", {plant: result[0]}) ; 
-    });
+// app.get("/plant",(req,res) => 
+// {
+//     Plant.find({"name":"Abelia x grandiflora"}) 
+//     .then((result)=> {
+//         console.log("This isss the result : "+(result[0].name)) ; 
+//         res.render("plant_profile", {plant: result[0]}) ; 
+//     });
    
-});
+// });
 
 
 app.get("/ByLetter",(req,res) => {
@@ -159,9 +193,7 @@ app.get("/adminOptions", (req, res)=>{
     console.log("Melsiiiiiiiiiiiiiio") ; 
 })
 
-app.get("/add_plant",(req,res) => {
-    res.render("add_plant") ;
-})
+
 
 app.get("/edit_plant",(req,res) => {
     res.render("edit_plant") ;
@@ -366,6 +398,88 @@ app.post("/delete_plant",(req,res) => {
 })
 
 
+
+app.get("/add_plant",(req,res) => {
+    res.render("add_plant") ;
+})
+
+const storage = multer.diskStorage({
+    destination : (req,file,cb) => {
+        cb(null,"public/images")
+    } ,
+    filename : (req, file,cb) => {
+        console.log(file) ; 
+        // cb(null,path.extname(file.originalname))
+        cb(null, req.body.name+"0.jpg") ; 
+        // file.originalname
+    }
+})
+
+const upload = multer({storage: storage})
+
+
+app.post("/add_plant", upload.single("image") , (req,res) => {
+    console.log(req.body) ; 
+    const p = new Plant(
+        {
+            name : req.body.name, 
+            scientific_name : req.body.scientific_name , 
+            description : req.body.description, 
+            french_name : req.body.french_name , 
+            pronounciation: req.body.pronounciation , 
+            type : req.body.type , 
+            origin : req.body.origin , 
+            heat : req.body.heat , 
+            hardiness : req.body.hardiness , 
+            uses :req.body.uses , 
+            growth_rate : req.body.growth_rate , 
+            tree_shape : req.body.tree_shape , 
+            canopy : req.body.canopy , 
+            height :  req.body.height , 
+            spread  :  req.body.spread , 
+            Leaf_Arrangement : req.body.Leaf_Arrangement , 
+            Leaf_Venation : req.body.Leaf_Venation , 
+            Leaf_Persistance : req.body.Leaf_Persistance , 
+            Leaf_Type : req.body.Leaf_Type , 
+            Leaf_Blade : req.body.Leaf_Blade , 
+            Leaf_Shape :req.body.Leaf_Shape , 
+            Leaf_Margins:req.body.Leaf_Margins , 
+            Leaf_Texture:req.body.Leaf_Texture , 
+            Leaf_Scent: req.body.Leaf_Scent, 
+            color_growing_season:req.body.color_growing_season , 
+            color_changing_season: req.body.color_changing_season , 
+            Flower_Showiness : req.body.Flower_Showiness , 
+        Flower_Size :req.body.Flower_Size , 
+        Flower_Type : req.body.Flower_Type , 
+        Flower_Scent : req.body.Flower_Scent , 
+        Flower_Color : req.body.Flower_Color , 
+        seasons: req.body.seasons , 
+        Fruit_Type : req.body.Fruit_Type , 
+        Fruit_Showiness : req.body.Fruit_Showiness , 
+        Fruit_Size : req.body.Fruit_Size , 
+        Fruit_Color: req.body.Fruit_Color , 
+        Heat_Tolerance : req.body.Heat_Tolerance , 
+        Drought_Tolerance : req.body.Drought_Tolerance , 
+        Salt_Tolerance : req.body.Salt_Tolerance , 
+        Soil_Requirements : req.body.Soil_Requirements , 
+        Soil_Ph_Requirements :req.body.Soil_Ph_Requirements , 
+        Water_Requirements : req.body.Water_Requirements , 
+        Light_Requirements : req.body.Light_Requirements , 
+        Invasive_Potential : req.body.Invasive_Potential , 
+        Prunning_Requirements :req.body.Prunning_Requirements , 
+        Edible_Parts :req.body.Edible_Parts , 
+        Plant_Propagation : req.body.Plant_Propagation,
+        pictures: 1
+        }
+    ); 
+    p.save() 
+    .then((result) => {
+        res.redirect("/adminOptions") ; 
+    })
+    .catch((error)=> {
+        console.log("Mmmmmmmmmmmmmmmmmm") ; 
+    })
+})
 
 
 
