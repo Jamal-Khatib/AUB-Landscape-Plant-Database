@@ -5,11 +5,18 @@ const url = require("url") ;
 const ejs = require("ejs");
 const multer = require("multer") ; 
 const path = require("path") ; 
+const bodyParser = require("body-parser") ; 
+const fs = require("fs") ; 
 
 const app = new express() ; 
 app.use(express.urlencoded({extended:true})) ; 
 app.set("view engine","ejs") ; 
 app.use(express.static("public"))  ;
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+
 
 
 const URI = "mongodb+srv://jamal:j1a2m3a4l5@cluster0.6vwvu.mongodb.net/firstDB?retryWrites=true&w=majority" ; 
@@ -482,4 +489,38 @@ app.post("/add_plant", upload.single("image") , (req,res) => {
 })
 
 
+
+app.get("/send_message",(req,res) => {
+    res.render("send_message")
+})
+
+app.get("/sendy",(req,res) => {
+    var email = req.query.email ; 
+    var message = req.query.message ; 
+    var line = email+":"+message+"\n" ; 
+
+    fs.appendFile("./messages.txt",line,(err) => {
+        if(err) {console.log(err) ; }
+        else  res.redirect("/") ; 
+    })
+    // res.end() ; 
+})
+
+app.get("/view_messages",(req,res)=> {
+    fs.readFile("./messages.txt","utf8",(err,data)=>{
+        var lines = data.trim().split("\n") ; 
+        console.log(lines.length) ; 
+        var messages = [] ;  
+        for(let i = 0 ; i<lines.length ; i++)
+        {
+            var line = lines[i].split(":") ; 
+            console.log(lines[i]) ; 
+            console.log("haha") ; 
+            messages.push(line[0].trim()) ; 
+            messages.push(line[1].trim()) ; 
+        }
+        // console.log(messages) ; 
+        res.render("view_messages",{messages:messages}) ; 
+    })
+})
 

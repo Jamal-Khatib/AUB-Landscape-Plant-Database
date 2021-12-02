@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include("./partials/header.ejs") %>
+
+
+    <main style="padding-top: 30px;">
+
+        <% for(let i = 0 ; i<messages.length ; i+=2) {  %>
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div >
+                <h2 class="emails" style="text-align: center;"> <%= messages[i]  %></h2>
+                <br> <br>
+                <h4><%= messages[i+1]  %></h4>
+                </div>
+
+                <div>
+                    <a href="mailto:<%=messages[i]%>"><button > Reply </button> </a>
+                </div>
+                
+                
+            </div>
+            <hr> <br>
+
+        <% } %>
+      
+    </main>
+    
+</body>
+</html>
+
+<style>
+    h2
+    {
+        font-size: xx-large;
+    }
+    h4{
+        font-size: larger;
+    }
+    div,h4{
+        padding-bottom: 50px;
+    }
+    .emails{
+        color: #008000;
+    }
+    button {
+    background-color: #40916cff;
+    color: white;
+    padding: 25px 50px;
+    font-size: xx-large;
+    box-shadow: 1px 1px black;
+    border: 1px solid #40916cff;
+    margin-right: 30px;
+}
+
+</style>

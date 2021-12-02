@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/send_message/send_message.js"></script>
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+
+    <h1 style="font-size:50px; background-color:#40916cff ; color: white; text-align:center; font-weight:bold">
+        Send a message to the admin</h1>
+   
+        <main style="text-align: center; padding-top:100px ; padding-bottom:50px ;"> 
+
+            <label class="l1"> Enter your email : </label>
+            <input name="email" style="font-size: xx-large;" required id="email"> 
+            <br> <br>
+            
+    
+            <label for="message" class="l1"> Message: </label>
+            <textarea name="message" id="message" required></textarea>
+            <br> <br>
+    
+            <label id="captcha" style="text-shadow: 0 0 3px #40916cff, 0 0 5px black; transform: rotate(5deg);" ></label>
+            <input id="result" placeholder="Write the captcha"> 
+            <br> <br>
+
+            <label id="error"> </label> <br> <br>
+            <button id="button"  style="background-color:#40916cff ; color: white; padding: 25px 50px ; font-size: xx-large; margin-left: 20%;"> Send </button>
+
+        </main>
+      
+        
+</body>
+</html>
+
+<style>
+    label,input,textarea
+    {
+        font-size: xx-large;
+        margin-right: 50px;
+    }
+    
+    label{
+        display: inline-block ; 
+        width: 500px;
+        text-align: right;
+    }
+</style>
