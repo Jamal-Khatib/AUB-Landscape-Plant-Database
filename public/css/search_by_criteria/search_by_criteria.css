@@ -28,8 +28,9 @@ colors {
   -ms-border-radius: 10px 10px 0px 0px;
   -o-border-radius: 10px 10px 0px 0px;
 }
-#tabs > li > button:active {
+#tabs > li > button:active, #tabs > li > button:hover {
   box-shadow: inset 1px 1px black;
+  cursor: pointer;
 }
 
 .tabs-selected {
