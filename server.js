@@ -524,3 +524,6 @@ app.get("/view_messages",(req,res)=> {
     })
 })
 
+app.get("/useful_links", (req, res) => {
+    res.render("useful_links");
+})
