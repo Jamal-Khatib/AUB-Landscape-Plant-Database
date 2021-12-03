@@ -38,10 +38,8 @@ function highlightCountry() {
     function toggleShape(shape, forced = -1) {
         forced = parseInt(forced);
         if (forced == 1) {
-            console.log(forced, forced == 1, typeof forced);
             shape.style.opacity = 1;
         } else if (forced == 0) {
-            console.log(forced, forced == 1, typeof forced);
             shape.style.opacity = 0;
         } else {
             if (shape.style.opacity == 0) {
@@ -60,8 +58,6 @@ function highlightCountry() {
         } else if (forced == 0) {
             btn.style.backgroundColor = "#52b788ff";
         } else {
-            console.log("IM shouldnt be here")
-
             if (btn.style.backgroundColor == "#52b788ff") {
                 btn.style.backgroundColor = "#2d6a4fff";
             } else {
@@ -80,13 +76,12 @@ function highlightCountry() {
         //On button hover -> highlight country shape
         btn.onmouseover = (e) => {
             toggleShape(correspondingShape, 1);
-            toggleButton(e.target, 1)
+            toggleButton(e.target, 1);
         };
         btn.onmouseleave = (e) => {
             if (correspondingShape.getAttribute("lastselected") != "true") {
-                console.log("Hovering out");
                 toggleShape(correspondingShape, 0);
-                toggleButton(e.target, 0)
+                toggleButton(e.target, 0);
             }
         };
         //On button click -> indent button and leave shape highlighted
@@ -95,14 +90,14 @@ function highlightCountry() {
                 correspondingShape.setAttribute("lastselected", "true");
                 toggleShape(correspondingShape, 1);
                 toggleButton(e.target, 1);
-            }
-            else if (correspondingShape.getAttribute("lastselected") == "true") {
+            } else if (
+                correspondingShape.getAttribute("lastselected") == "true"
+            ) {
                 correspondingShape.setAttribute("lastselected", "false");
                 toggleShape(correspondingShape, 0);
                 toggleButton(e.target, 0);
-            }
-            else {
-                console.error("Shape did not get selected correctly")
+            } else {
+                console.error("Shape did not get selected correctly");
             }
         };
     }
@@ -112,7 +107,9 @@ function highlightCountry() {
     for (let i = 0; i < countryShapes.length; i++) {
         const shape = countryShapes[i];
         const countryNum = shape.parentNode.parentNode.id.split("_")[1];
-        const correspondingBtn = document.querySelector(`#country-list > li[alt="${countryNum}"]`)
+        const correspondingBtn = document.querySelector(
+            `#country-list > li[alt="${countryNum}"]`
+        );
         // On shape hover -> hover corresponding button
         shape.onmouseover = (e) => {
             toggleShape(e.target, 1);
@@ -130,32 +127,35 @@ function highlightCountry() {
                 e.target.setAttribute("lastselected", "true");
                 toggleButton(correspondingBtn, 1);
                 toggleShape(e.target, 1);
-            }
-            else if (e.target.getAttribute("lastselected") == "true") {
+            } else if (e.target.getAttribute("lastselected") == "true") {
                 e.target.setAttribute("lastselected", "false");
                 toggleButton(correspondingBtn, 0);
                 toggleShape(e.target, 0);
+            } else {
+                console.error("Shape did not get selected correctly");
             }
-            else {
-                console.error("Shape did not get selected correctly")
-            }
-        }
+        };
     }
 }
 
 // ------------------------------------------------------------Tab 2
 function toggleImgSelect() {
-    var listOfChecks = document.querySelectorAll("form > div > label > input");
-    for (let i = 0; i < listOfChecks.length; i++) {
-        const check = listOfChecks[i];
-        check.addEventListener("change", function (e) {
-            const div = check.parentNode.parentNode;
-            if (div.className == "selected") {
-                div.className = "unselected";
+    var listOfInteractables = document.getElementsByClassName("selectbox");
+    for (var i = 0; i < listOfInteractables.length; i++) {
+        const box = listOfInteractables[i];
+        const label = box.children[0];
+        const checkbox = label.children[0];
+        label.addEventListener("click", function (e) {
+            e.preventDefault();
+        });
+        box.addEventListener("click", function (e) {
+            if (checkbox.checked) {
+                checkbox.checked = false;
+                box.classList.replace("selected", "unselected");
+            } else {
+                checkbox.checked = true;
+                box.classList.replace("unselected", "selected");
             }
-            else if (div.className == "unselected") {
-                div.className = "selected";
-            }
-        })
+        });
     }
 }

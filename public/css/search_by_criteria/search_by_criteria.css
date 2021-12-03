@@ -1,56 +1,167 @@
 colors {
-  --nyanza: #d8f3dcff;
-  --turquoise-green: #b7e4c7ff;
-  --turquoise-green-2: #95d5b2ff;
-  --ocean-green: #74c69dff;
-  --ocean-green-2: #52b788ff;
-  --illuminating-emerald: #40916cff;
-  --bottle-green: #2d6a4fff;
-  --brunswick-green: #1b4332ff;
-  --dark-jungle-green: rgb(150, 155, 153);
+    --nyanza: #d8f3dcff;
+    --turquoise-green: #b7e4c7ff;
+    --turquoise-green-2: #95d5b2ff;
+    --ocean-green: #74c69dff;
+    --ocean-green-2: #52b788ff;
+    --illuminating-emerald: #40916cff;
+    --bottle-green: #2d6a4fff;
+    --brunswick-green: #1b4332ff;
+    --dark-jungle-green: rgb(150, 155, 153);
 }
 
 #tabs {
-  display: flex;
-  flex-direction: row;
-  background-color: #52b788ff;
-  justify-content: space-evenly;
-  padding-top: 4px;
-  margin-top: -3px;
+    display: flex;
+    flex-direction: row;
+    background-color: #52b788ff;
+    justify-content: space-evenly;
+    padding-top: 4px;
+    margin-top: -3px;
 }
 #tabs > li > button {
-  border: none;
-  padding: 5px;
-  font-size: 15px;
-  border-radius: 10px 10px 0px 0px;
-  -webkit-border-radius: 10px 10px 0px 0px;
-  -moz-border-radius: 10px 10px 0px 0px;
-  -ms-border-radius: 10px 10px 0px 0px;
-  -o-border-radius: 10px 10px 0px 0px;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 10px 10px 0px 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -ms-border-radius: 10px 10px 0px 0px;
+    -o-border-radius: 10px 10px 0px 0px;
 }
-#tabs > li > button:active, #tabs > li > button:hover {
-  box-shadow: inset 1px 1px black;
-  cursor: pointer;
+#tabs > li > button:active,
+#tabs > li > button:hover {
+    box-shadow: inset 1px 1px black;
+    cursor: pointer;
 }
 
 .tabs-selected {
-  color: black;
-  background-color: white;
-  border: none;
+    color: black;
+    background-color: white;
+    border: none;
 }
 .tabs-done {
-  color: white;
-  background-color: inherit;
+    color: white;
+    background-color: inherit;
 }
 
 #tab-container {
-  padding: 50px;
+    padding: 25px 50px 50px 50px;
 }
 
 .tab-container-selected {
-  display: block;
+    display: block;
 }
 
 .tab-container-hidden {
-  display: none;
+    display: none;
+}
+
+/* Within tabs */
+.selectbox {
+    width: fit-content;
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    margin: 4px;
+    background-color: #95d5b2ff;
+    color: white;
+}
+.selectbox:hover {
+    cursor: pointer;
+    background-color: #95d5b2ff;
+}
+
+.unselected {
+    border: none;
+    background-color: #40916cff;
+    color: white;
+}
+.selected {
+    color: #1b4332ff;
+    background-color: #95d5b2ff;
+    border: 3px solid #40916cff;
+}
+
+.visually-hidden {
+    position: absolute;
+    z-index: -99;
+    opacity: 0;
+}
+
+.radiobox {
+    padding: 2px 5px 2px 2px;
+    background-color: #40916cff;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -ms-border-radius: 10px 10px 10px 10px;
+    -o-border-radius: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin-top: 25px;
+}
+
+#life-cycle-radio-wrapper > label,
+#growth-rate-radio-wrapper > label,
+#persistance-radio-wrapper > label,
+#leaf-scent-radio-wrapper > label,
+#flower-scent-radio-wrapper > label,
+#flower-season-radio-wrapper > label,
+#flower-showiness-radio-wrapper > label,
+#fruit-showiness-radio-wrapper > label,
+#fruit-type-radio-wrapper > label,
+#fruit-season-radio-wrapper > label,
+#crownshaft-radio-wrapper > label,
+#management-edible-radio-wrapper > label,
+#management-litter-radio-wrapper > label,
+#management-rooting-radio-wrapper > label,
+#management-toxicity-radio-wrapper > label,
+#management-potential-radio-wrapper > label,
+#management-pruning-radio-wrapper > label,
+#management-diseases-radio-wrapper > label,
+#management-lifespan-radio-wrapper > label {
+    margin: 4px;
+}
+
+#life-cycle-radio-wrapper > label:hover,
+#growth-rate-radio-wrapper > label:hover,
+#persistance-radio-wrapper > label:hover,
+#leaf-scent-radio-wrapper > label:hover,
+#flower-scent-radio-wrapper > label:hover,
+#flower-season-radio-wrapper > label:hover,
+#flower-showiness-radio-wrapper > label:hover,
+#fruit-showiness-radio-wrapper > label:hover,
+#fruit-type-radio-wrapper > label:hover,
+#fruit-season-radio-wrapper > label:hover,
+#crownshaft-radio-wrapper > label:hover,
+#management-edible-radio-wrapper > label:hover,
+#management-litter-radio-wrapper > label:hover,
+#management-rooting-radio-wrapper > label:hover,
+#management-toxicity-radio-wrapper > label:hover,
+#management-potential-radio-wrapper > label:hover,
+#management-pruning-radio-wrapper > label:hover,
+#management-diseases-radio-wrapper > label:hover,
+#management-lifespan-radio-wrapper > label :hover,
+#life-cycle-radio-wrapper > label > input:hover,
+#growth-rate-radio-wrapper > label > input:hover,
+#persistance-radio-wrapper > label > input:hover,
+#leaf-scent-radio-wrapper > label > input:hover,
+#flower-scent-radio-wrapper > label > input:hover,
+#flower-season-radio-wrapper > label > input:hover,
+#flower-showiness-radio-wrapper > label > input:hover,
+#fruit-showiness-radio-wrapper > label > input:hover,
+#fruit-type-radio-wrapper > label > input:hover,
+#fruit-season-radio-wrapper > label > input:hover,
+#crownshaft-radio-wrapper > label > input:hover,
+#management-edible-radio-wrapper > label > input:hover,
+#management-litter-radio-wrapper > label > input:hover,
+#management-rooting-radio-wrapper > label > input:hover,
+#management-toxicity-radio-wrapper > label > input:hover,
+#management-potential-radio-wrapper > label > input:hover,
+#management-pruning-radio-wrapper > label > input:hover,
+#management-diseases-radio-wrapper > label > input:hover,
+#management-lifespan-radio-wrapper > label > input :hover {
+    cursor: pointer;
 }
