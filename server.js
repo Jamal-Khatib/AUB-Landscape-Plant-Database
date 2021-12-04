@@ -527,3 +527,11 @@ app.get("/view_messages",(req,res)=> {
 app.get("/useful_links", (req, res) => {
     res.render("useful_links");
 })
+
+app.get("/glossary",(req,res) => {
+    res.render("glossary") ; 
+})
+
+app.get("/about_us",(req,res) => {
+    res.render("about_us") ; 
+})
