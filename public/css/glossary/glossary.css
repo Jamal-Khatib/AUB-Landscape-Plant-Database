@@ -26,4 +26,5 @@
     -moz-transition: all 0s linear;
     -ms-transition: all 0s linear;
     -o-transition: all 0s linear;
+    cursor: pointer;
 }
