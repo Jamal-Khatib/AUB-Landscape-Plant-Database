@@ -10,13 +10,31 @@ colors {
     --dark-jungle-green: rgb(150, 155, 153);
 }
 
-#tabs {
+#tabs,
+#controls {
     display: flex;
     flex-direction: row;
     background-color: #52b788ff;
     justify-content: space-evenly;
     padding-top: 4px;
     margin-top: -3px;
+}
+#controls > li > button {
+    border: none;
+    margin-top: 3px;
+    margin-bottom: 7px;
+    padding: 2px 30px;
+    font-size: 20px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: 1px 1px 2px black;
+}
+#controls > li > button:hover {
+    box-shadow: inset 1px 1px black;
+    cursor: pointer;
 }
 #tabs > li > button {
     border: none;
