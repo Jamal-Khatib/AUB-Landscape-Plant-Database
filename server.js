@@ -137,14 +137,22 @@ app.get("/ByName",(req,res) => {
     {
         Plant.find({"name": req.query.name})
         .then((result) => {
+            if(result.length==0) {  res.render("search_by_name") ;}
             res.render("plant_profile", {plant: result[0]}) ;
+        })
+        .catch((a) => {
+            res.render("search_by_name") ; 
         })
     }
     else if(req.query.name=="" && req.query.scientific_name!="")
     {
         Plant.find({"scientific_name": req.query.scientific_name})
         .then((result) => {
+            if(result.length==0) {  res.render("search_by_name") ;}
             res.render("plant_profile", {plant: result[0]}) ;
+        })
+        .catch((error) => {
+            res.render("search_by_name") ; 
         })
     }
 
@@ -153,7 +161,11 @@ app.get("/ByName",(req,res) => {
     {
         Plant.find({"name": req.query.name})
         .then((result) => {
+            if(result.length==0) {  res.render("search_by_name") ;}
             res.render("plant_profile", {plant: result[0]}) ;
+        })
+        .catch((a) => {
+            res.render("search_by_name") ; 
         })
         
     }
@@ -526,4 +538,12 @@ app.get("/view_messages",(req,res)=> {
 
 app.get("/useful_links", (req, res) => {
     res.render("useful_links");
+})
+
+app.get("/glossary",(req,res) => {
+    res.render("glossary") ; 
+})
+
+app.get("/about_us",(req,res) => {
+    res.render("about_us") ; 
 })
