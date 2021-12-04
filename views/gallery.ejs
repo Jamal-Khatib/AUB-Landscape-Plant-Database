@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUB Landscape - Search</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/gallery/gallery.css">
+</head>
+
+<body>
+    <%- include("./partials/header.ejs") %>
+    <section id=galleryBody>
+    <h3 id="tabTitle">Image Gallery</h3>
+    <form name="selections" id="selectionsForm">
+    <div class="selectionDiv" id="typeSort">
+        <h4>Plant Type:</h4>
+
+        <p class="typeVal" id="sentPlantType"><%=plantType%></p> <!-- just used to pass values from backend to front end -->
+        <p class="typeVal" id="sentPlantSort"><%=plantSort%></p>
+
+        <select class="sortSelect" name="plantType" id="plantTypeSel">
+            <option value="All" selected>All Types</option>
+            <option value="Cactus">Cactus / Succulent</option>
+            <option value="Groundcover">Groundcover</option>
+            <option value="Lawn">Lawn</option>
+            <option value="Palm">Palm</option>
+            <option value="Shrub">Shrub</option>
+            <option value="Tree">Tree</option>
+            <option value="Vine">Vine</option>
+        </select>
+    </div>
+    
+    <div class="selectionDiv" id="nameSort">
+        <h4>Sort By:</h4>
+        <select class="sortSelect" name="plantNameSelector" id="plantName">
+            <option value="scientificA" selected>Scientific Name (Asc.)</option>
+            <option value="scientificD">Scientific Name (Des.)</option>
+            <option value="commonA">Common English Name (Asc.)</option>
+            <option value="commonD">Common English Name (Des.)</option>
+        </select>
+    </div>
+    </form>
+    <div class="selectionDiv" id="picNumber">
+        <h4>Number of Images to Display:</h4>
+        <select class="sortSelect" name="imageNumberSelector" id="picNumSelector">
+            <option value="All" selected>All</option>
+        </select>
+
+    </div>
+
+    <div id="main-image-div">
+
+        <% if(plants.length==0) { %>
+            <h1 style="color: white; background-color: black; "> No plants with such criteria are in our database</h1>
+        <% } else { for(let i=0 ; i<plants.length ; i++) { %>
+            <div class="babyImage">
+                <img class="resultImage" alt="<%=plants[i].name%>0.jpg" src="./images/plants/<%=plants[i].name%>0.jpg"/>
+                <h5><%=plants[i].name %></h5>
+                <h5>(<%=plants[i].scientific_name %>)</h5>
+            </div>
+        <% }} %>
+    </div>
+    </section>
+
+    <%- include("./partials/footer.ejs") %>
+
+    <!-- load the scripts for bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script src="js/gallery/gallery.js"></script>
+</body>
+
+</html>

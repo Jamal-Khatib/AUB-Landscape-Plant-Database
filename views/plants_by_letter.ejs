@@ -31,7 +31,7 @@
 
 
                         <div class="plantBox">
-                            <img alt="" src="images/<%=plants[i].name%>0.jpg" />
+                            <img alt="" src="images/plants/<%=plants[i].name%>0.jpg" />
                             <h2 class="plantName">
                                 <%= plants[i].name %>
                             </h2>
@@ -42,23 +42,21 @@
                                 <% for(let j=0 ; j< plants[i].pictures; j++) { %>
 
                                     <% if(j==0) { %>
-                                        <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>0.jpg">
-                                        <% } else if(j==1) { %>
-                                            <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>1.jpg">
-                                            <% } else { %>
-                                                <img class="zoomExtra" alt="" src="./images/<%=plants[i].name%>2.jpg">
-                                                <% } %>
+                                        <img class="zoomExtra" alt="" src="./images/plants/<%=plants[i].name%>0.jpg">
+                                    <% } else if(j==1) { %>
+                                        <img class="zoomExtra" alt="" src="./images/plants/<%=plants[i].name%>1.jpg">
+                                    <% } else { %>
+                                        <img class="zoomExtra" alt="" src="./images/plants/<%=plants[i].name%>2.jpg">
+                                    <% } %>
+                                <% } %>
 
-
-                                                    <% } %>
-
-
-                                                        <p style="margin-top: 30px;">
-                                                            <a href="/ByName?name=<%= plants[i].name %>"
-                                                                class="read-more"
-                                                                style="color: white; background-color: #2d6a4fff; font-size: larger; padding: 10px 10px;">
-                                                                Check its profile </a>
-                                                        </p>
+                                <p style="margin-top: 30px;">
+                                    <a href="/ByName?name=<%= plants[i].name %>"
+                                        class="read-more"
+                                        style="color: white; background-color: #2d6a4fff; font-size: larger; padding: 10px 10px;">
+                                        Check its profile
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <% } }%>
