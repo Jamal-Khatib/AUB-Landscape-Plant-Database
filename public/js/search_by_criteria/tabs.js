@@ -2,17 +2,74 @@ function $(e) {
     return document.getElementById(e);
 }
 
+let currentTabBtn;
+let currentTabContainer;
+
 window.onload = () => {
+    currentTabBtn = $("tab-btn-1");
+    currentTabContainer = $("tab-1");
+
     switchTabs();
     highlightCountry();
     toggleImgSelect();
+
+    $("back-btn").onclick = backBtn;
+    $("submit-btn").onclick = () => {
+        if (
+            !confirm(
+                "You are about to search for a plant with your selected filters.\nAre you sure you don't want to add more filters?\n\nOK - To Proceed"
+            )
+        ) {
+            return false;
+        }
+    };
+    $("next-btn").onclick = nextBtn;
 };
 
-function switchTabs() {
-    let currentTabBtn = $("tab-btn-1");
-    let currentTabContainer = $("tab-1");
+function backBtn() {
+    listOfTabs = document.querySelectorAll("ul#tabs > li > button");
+    for (let i = 0; i < listOfTabs.length; i++) {
+        const tabBtn = listOfTabs[i];
+        const tabNum = listOfTabs[i].id.split("-")[2];
+        if (i != 0) {
+            if (tabBtn.className == "tabs-selected") {
+                tabBtn.className = "tabs-done";
+                $(`tab-${tabNum}`).className = "tab-container-hidden";
 
-    listOfTabs = document.querySelectorAll("ul#tabs > li");
+                currentTabBtn = listOfTabs[i - 1];
+                currentTabContainer = $(`tab-${parseInt(tabNum) - 1}`);
+
+                currentTabBtn.className = "tabs-selected";
+                currentTabContainer.className = "tab-container-selected";
+                break;
+            }
+        }
+    }
+}
+
+function nextBtn() {
+    listOfTabs = document.querySelectorAll("ul#tabs > li > button");
+    for (let i = 0; i < listOfTabs.length; i++) {
+        const tabBtn = listOfTabs[i];
+        const tabNum = listOfTabs[i].id.split("-")[2];
+        if (i != listOfTabs.length - 1) {
+            if (tabBtn.className == "tabs-selected") {
+                tabBtn.className = "tabs-done";
+                $(`tab-${tabNum}`).className = "tab-container-hidden";
+
+                currentTabBtn = listOfTabs[i + 1];
+                currentTabContainer = $(`tab-${parseInt(tabNum) + 1}`);
+
+                currentTabBtn.className = "tabs-selected";
+                currentTabContainer.className = "tab-container-selected";
+                break;
+            }
+        }
+    }
+}
+
+function switchTabs() {
+    listOfTabs = document.querySelectorAll("ul#tabs > li > button");
     for (let i = 0; i < listOfTabs.length; i++) {
         const tab = listOfTabs[i];
         tab.onclick = function (e) {

@@ -15,47 +15,55 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
-        <ul id="tabs">
-            <li><button id="tab-btn-1" class="tabs-selected">Country</button></li>
-            <!-- <li><button id="tab-btn-2" class="tabs-done">Climate</button></li> -->
-            <li><button id="tab-btn-3" class="tabs-done">Basic Info</button></li>
-            <li><button id="tab-btn-4" class="tabs-done">Uses</button></li>
-            <li><button id="tab-btn-5" class="tabs-done">Size\Shape</button></li>
-            <li><button id="tab-btn-6" class="tabs-done">Leaf</button></li>
-            <li><button id="tab-btn-7" class="tabs-done">Flower</button></li>
-            <li><button id="tab-btn-8" class="tabs-done">Fruit</button></li>
-            <li><button id="tab-btn-9" class="tabs-done">Trunk</button></li>
-            <li><button id="tab-btn-10" class="tabs-done">Management</button></li>
-        </ul>
+        <form action="/" method="GET">
+            <ul id="controls">
+                <li><button type="button" id="back-btn">Back</button></li>
+                <li><button type="submit" id="submit-btn">Submit</button></li>
+                <li><button type="button" id="next-btn">Next</button></li>
+            </ul>
 
-        <form action="/" method="GET" id="tab-container">
-            <div id="tab-1" class="tab-container-selected">
-                <%- include("./partials/search_by_criteria/map_countries.ejs") %>
-            </div>
-            <!-- <div id="tab-2" class="tab-container-hidden"></div> -->
-            <div id="tab-3" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/basic_info.ejs") %>
-            </div>
-            <div id="tab-4" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/uses.ejs") %>
-            </div>
-            <div id="tab-5" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/size_shape.ejs") %>
-            </div>
-            <div id="tab-6" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/leaf.ejs") %>
-            </div>
-            <div id="tab-7" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/flower.ejs") %>
-            </div>
-            <div id="tab-8" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/fruit.ejs") %>
-            </div>
-            <div id="tab-9" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/trunk.ejs") %>
-            </div>
-            <div id="tab-10" class="tab-container-hidden">
-                <%- include("./partials/search_by_criteria/management.ejs") %>
+            <ul id="tabs">
+                <li><button type="button" id="tab-btn-1" class="tabs-selected">Country</button></li>
+                <!-- <li><button id="tab-btn-2" class="tabs-done">Climate</button></li> -->
+                <li><button type="button" id="tab-btn-2" class="tabs-done">Basic Info</button></li>
+                <li><button type="button" id="tab-btn-3" class="tabs-done">Uses</button></li>
+                <li><button type="button" id="tab-btn-4" class="tabs-done">Size\Shape</button></li>
+                <li><button type="button" id="tab-btn-5" class="tabs-done">Leaf</button></li>
+                <li><button type="button" id="tab-btn-6" class="tabs-done">Flower</button></li>
+                <li><button type="button" id="tab-btn-7" class="tabs-done">Fruit</button></li>
+                <li><button type="button" id="tab-btn-8" class="tabs-done">Trunk</button></li>
+                <li><button type="button" id="tab-btn-9" class="tabs-done">Management</button></li>
+            </ul> 
+
+            <div id="tab-container">
+                <div id="tab-1" class="tab-container-selected">
+                    <%- include("./partials/search_by_criteria/map_countries.ejs") %>
+                </div>
+                <!-- <div id="tab-2" class="tab-container-hidden"></div> -->
+                <div id="tab-2" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/basic_info.ejs") %>
+                </div>
+                <div id="tab-3" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/uses.ejs") %>
+                </div>
+                <div id="tab-4" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/size_shape.ejs") %>
+                </div>
+                <div id="tab-5" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/leaf.ejs") %>
+                </div>
+                <div id="tab-6" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/flower.ejs") %>
+                </div>
+                <div id="tab-7" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/fruit.ejs") %>
+                </div>
+                <div id="tab-8" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/trunk.ejs") %>
+                </div>
+                <div id="tab-9" class="tab-container-hidden">
+                    <%- include("./partials/search_by_criteria/management.ejs") %>
+                </div>
             </div>
         </form>
 
