@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search By Criteria</title>
-    <link rel="stylesheet" href="css/search_by_criteria/search_by_criteria.css">
+    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="css/search_by_criteria/map_countries.css">
-    <link rel="stylesheet" href="css/search_by_criteria/basic_info.css">
+    <link rel="stylesheet" href="css/search_by_criteria/search_by_criteria.css">
     <script src="js/search_by_criteria/tabs.js"></script>
 </head>
 
@@ -28,49 +28,36 @@
             <li><button id="tab-btn-10" class="tabs-done">Management</button></li>
         </ul>
 
-        <div id="tab-container">
+        <form action="/" method="GET" id="tab-container">
             <div id="tab-1" class="tab-container-selected">
-                <div id="tab-1-content">
-                    <ul id="country-list">
-                        <li alt="3">Algeria</li>
-                        <li alt="22">Djibouti</li>
-                        <li alt="7">Egypt</li>
-                        <li alt="10">Iraq</li>
-                        <li alt="14">Jordan</li>
-                        <li alt="16">Kuwait</li>
-                        <li alt="12">Lebanon</li>
-                        <li alt="6">Libya</li>
-                        <li alt="1">Mauritania</li>
-                        <li alt="4">Morroco</li>
-                        <li alt="18">Oman</li>
-                        <li alt="11">Palestine</li>
-                        <li alt="13">Qatar</li>
-                        <li alt="15">Saudi Arabia</li>
-                        <li alt="23">Somalia</li>
-                        <li alt="8">Sudan</li>
-                        <li alt="9">Syria</li>
-                        <li alt="5">Tunisia</li>
-                        <li alt="17">UAE</li>
-                        <li alt="19">Yemen</li>
-                    </ul>
-
-                    <div id="main_map">
-                        <%- include("./partials/search_by_criteria/map_countries.ejs") %>
-                    </div>
-                </div>
+                <%- include("./partials/search_by_criteria/map_countries.ejs") %>
             </div>
             <!-- <div id="tab-2" class="tab-container-hidden"></div> -->
             <div id="tab-3" class="tab-container-hidden">
                 <%- include("./partials/search_by_criteria/basic_info.ejs") %>
             </div>
-            <div id="tab-4" class="tab-container-hidden"> Tab 4 </div>
-            <div id="tab-5" class="tab-container-hidden"> Tab 5 </div>
-            <div id="tab-6" class="tab-container-hidden"> Tab 6 </div>
-            <div id="tab-7" class="tab-container-hidden"> Tab 7 </div>
-            <div id="tab-8" class="tab-container-hidden"> Tab 8 </div>
-            <div id="tab-9" class="tab-container-hidden"> Tab 9 </div>
-            <div id="tab-10" class="tab-container-hidden"> Tab 10 </div>
-        </div>
+            <div id="tab-4" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/uses.ejs") %>
+            </div>
+            <div id="tab-5" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/size_shape.ejs") %>
+            </div>
+            <div id="tab-6" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/leaf.ejs") %>
+            </div>
+            <div id="tab-7" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/flower.ejs") %>
+            </div>
+            <div id="tab-8" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/fruit.ejs") %>
+            </div>
+            <div id="tab-9" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/trunk.ejs") %>
+            </div>
+            <div id="tab-10" class="tab-container-hidden">
+                <%- include("./partials/search_by_criteria/management.ejs") %>
+            </div>
+        </form>
 
         <%- include("./partials/footer.ejs") %>
 </body>

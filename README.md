@@ -33,7 +33,7 @@ The structure and the data about the profile of plants (landscape info, botanica
     9. [X] Search a plant directly on Google with a single mouse click
     10. [ ] Check the glossary about plants (currently the page shows all the terms, which makes loading the page slow. Change this behavior to make the page lighter on the network and while being viewed).
     11. [ ] Download the profile of a plant in PDF format
-    12. [ ] See a list of useful links
+    12. [X] See a list of useful links
     13. [X] Use a Contact Us page to send a message to the website’s admins. It should also include a captcha to avoid bots.
     14. [ ] Access a page that tells more about the website/project (About us)
 6. [X] The footer should contain copyright information and links to the Glossary, About us,
@@ -42,12 +42,12 @@ The structure and the data about the profile of plants (landscape info, botanica
 ## Backend:
 The admin should be able to:
 1. [ ] Define categorical and classificatory information about plants
-2. [ ] Add new plants
-3. [ ] Search for a plant (in ways similar to what a user can do).
-4. [ ] View a plant’s profile
-5. [ ] Modify a plant’s profile
-6. [ ] Delete a plant
-7. [ ] Reply (by email) to messages submitted using the “Contact Us” page i.e. your page should send an email to the original sender of the message
+2. [X] Add new plants
+3. [X] Search for a plant (in ways similar to what a user can do).
+4. [X] View a plant’s profile
+5. [X] Modify a plant’s profile
+6. [X] Delete a plant
+7. [X] Reply (by email) to messages submitted using the “Contact Us” page i.e. your page should send an email to the original sender of the message
 
 ## Project deliverables:
 - Complete source code (zipped)
