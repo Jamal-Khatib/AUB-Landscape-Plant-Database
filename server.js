@@ -129,6 +129,30 @@ app.get("/ByLetter",(req,res) => {
     })
 })
 
+app.get("/gallery", async (req,res) => {
+    //console.log(req.query.plantType);
+    if(typeof req.query.plantType != "undefined"){
+        if (req.query.plantType != "All"){
+            Plant.find({"type": req.query.plantType}).then((result) =>{
+                let sortType = megaSort(result,req); //sorts result and returns a value for sortType
+
+                res.render("gallery",{plants: result, plantType: req.query.plantType, plantSort: sortType});
+            });
+        }
+        else {
+            Plant.find().then((result) =>{
+                let sortType = megaSort(result,req); //sorts result and returns a value for sortType
+
+                res.render("gallery",{plants: result, plantType: req.query.plantType, plantSort: sortType});
+            });
+        }
+    }
+    else{
+        Plant.find().then((result) => {
+            res.render("gallery", {plants: result, plantType: "All", plantSort: "scientificA"});
+        });
+    }
+})
 
 app.get("/ByName",(req,res) => {
 
@@ -540,6 +564,36 @@ app.get("/useful_links", (req, res) => {
     res.render("useful_links");
 })
 
+function megaSort(result, req){
+    if (req.query.plantNameSelector == "scientificA"){
+        result.sort(function (a,b) {
+            if (a.name === b.name) return 0;
+            else return (a.scientific_name < b.scientific_name) ? -1 : 1;
+        });
+        return "scientificA";
+    }
+    else if (req.query.plantNameSelector == "scientificD"){
+        result.sort(function (a,b) {
+            if (a.name === b.name) return 0;
+            else return (a.scientific_name > b.scientific_name) ? -1 : 1;
+        });
+        return "scientificD";
+    }
+    else if (req.query.plantNameSelector == "commonA"){
+        result.sort(function (a,b) {
+            if (a.name === b.name) return 0;
+            else return (a.name < b.name) ? -1 : 1;
+        });
+        return "commonA";
+    }
+    else if (req.query.plantNameSelector == "commonD"){
+        result.sort(function (a,b) {
+            if (a.name === b.name) return 0;
+            else return (a.name > b.name) ? -1 : 1;
+        });
+        return "commonD";
+    }
+}
 app.get("/glossary",(req,res) => {
     res.render("glossary") ; 
 })
