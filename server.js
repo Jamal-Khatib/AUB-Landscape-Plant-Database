@@ -233,7 +233,6 @@ app.post("/adminCheck",(req,res)=> {
 app.get("/adminOptions", (req, res)=>{
     console.log("Marilyn") ; 
     res.render("admin_options") ; 
-    console.log("Melsiiiiiiiiiiiiiio") ; 
 })
 
 
@@ -448,7 +447,7 @@ app.get("/add_plant",(req,res) => {
 
 const storage = multer.diskStorage({
     destination : (req,file,cb) => {
-        cb(null,"public/images")
+        cb(null,"public/images/plants")
     } ,
     filename : (req, file,cb) => {
         console.log(file) ; 
