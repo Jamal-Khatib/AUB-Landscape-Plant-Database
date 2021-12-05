@@ -195,14 +195,9 @@ app.get("/searchName", (req, res) => {
     res.render("search_by_name");
 })
 
-app.get("/searchCriteria", (req, res) => {
-    res.render("search_by_criteria");
-})
-
 app.get("/adminCheck", (req, res) => {
     res.render("admin_check");
 })
-
 
 app.post("/adminCheck", (req, res) => {
     var real_name = "myAdmin";
@@ -591,7 +586,12 @@ app.get("/about_us", (req, res) => {
     res.render("about_us");
 })
 
-app.post("/filterByCriteria", (req, res) => {
+app.get("/FilterByCriteria", (req, res) => {
+    res.render("search_by_criteria");
+})
+
+
+app.post("/FilterByCriteria", (req, res) => {
     const parametersTemplate = {
         //tab1 Country
         country: req.body["Country"],   //NA
@@ -657,16 +657,11 @@ app.post("/filterByCriteria", (req, res) => {
         }
     })
 
+    console.log(callParameters);
+
     Plant.find(callParameters)
         .then((result) => {
-            if (result.length == 0) {
-                console.log("No results found")
-                //TODO render same page with msg
-            }
-            else {
-                console.log("Plant found");
-                //TODO render resulting plants
-            }
+            res.render("search_by_criteria_res", { plants: result });
         })
         .catch((err) => {
             console.error("Error in serach by criteria: ", err);
