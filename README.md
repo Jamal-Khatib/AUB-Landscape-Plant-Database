@@ -17,25 +17,25 @@ The structure and the data about the profile of plants (landscape info, botanica
         - [X] Common name
         - [X] Scientific name
         - [X] Alphabetically
-        - [ ] Any of its properties (origin, height, uses, leaf, flower, etc.)
+        - [X] Any of its properties (origin, height, uses, leaf, flower, etc.)
     2. Identify a plant by:
-        - [ ] Size/shape
-        - [ ] Leaf
-        - [ ] Flower
-        - [ ] Fruit
-        - [ ] Trunk
-    3. [ ] View the image gallery and filter the plants by type and sort the results in asc and desc order of two different properties.
-    4. [ ] The image gallery should allow the user to choose the number of images to show at a given moment in time. The user can then modify that number and the page should react accordingly.
+        - [X] Size/shape
+        - [X] Leaf
+        - [X] Flower
+        - [X] Fruit
+        - [X] Trunk
+    3. [X] View the image gallery and filter the plants by type and sort the results in asc and desc order of two different properties.
+    4. [X] The image gallery should allow the user to choose the number of images to show at a given moment in time. The user can then modify that number and the page should react accordingly.
     5. [ ] Browse plants by categories: fragrant plants, flowering plants, edible plants, etc.
     6. [X] The search results or pages that browse plants should all have the same layout. They should show a snapshot of a plant as shown below (e.g. its main image, its name, type, flower, height, etc.).
     7. [X] A zoomed version of the plant’s image should be show automatically every time the user hovers the mouse over it. When the mouse is out, the zoomed version should disappear.
     8. [X] View a plant’s complete profile
     9. [X] Search a plant directly on Google with a single mouse click
-    10. [ ] Check the glossary about plants (currently the page shows all the terms, which makes loading the page slow. Change this behavior to make the page lighter on the network and while being viewed).
+    10. [X] Check the glossary about plants (currently the page shows all the terms, which makes loading the page slow. Change this behavior to make the page lighter on the network and while being viewed).
     11. [ ] Download the profile of a plant in PDF format
     12. [X] See a list of useful links
     13. [X] Use a Contact Us page to send a message to the website’s admins. It should also include a captcha to avoid bots.
-    14. [ ] Access a page that tells more about the website/project (About us)
+    14. [X] Access a page that tells more about the website/project (About us)
 6. [X] The footer should contain copyright information and links to the Glossary, About us,
 
 

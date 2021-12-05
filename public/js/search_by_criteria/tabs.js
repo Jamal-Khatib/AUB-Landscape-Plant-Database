@@ -10,7 +10,10 @@ window.onload = () => {
     currentTabContainer = $("tab-1");
 
     switchTabs();
-    highlightCountry();
+    if (typeof $("main_map") != undefined && $("main_map") != null) {
+        console.log("yto");
+        highlightCountry();
+    }
     toggleImgSelect();
 
     $("back-btn").onclick = backBtn;
