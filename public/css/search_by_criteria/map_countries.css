@@ -241,3 +241,7 @@
   width: 132px;
   height: 110px;
 }
+
+#hidden-checkboxes-for-countries{
+  display: none;
+}
