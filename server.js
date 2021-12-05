@@ -657,13 +657,76 @@ app.post("/FilterByCriteria", (req, res) => {
         }
     })
 
-    console.log(callParameters);
+    console.log("Searching By Criteria for plants with :\n", callParameters);
 
     Plant.find(callParameters)
         .then((result) => {
-            res.render("search_by_criteria_res", { plants: result });
+            res.render("filtered_plants_res", {filterBy: "Criteria", plants: result });
         })
         .catch((err) => {
             console.error("Error in serach by criteria: ", err);
         })
+})
+
+app.get("/FilterByIdentification", (req, res) => {
+    res.render("search_by_identification");
+})
+
+app.post("/FilterByIdentification", (req, res) => {
+    const parametersTemplate = {
+        //tab1 Size/Shape
+        type: req.body["Plant-Type"],
+        canopy: req.body["Canopy-Shape"],
+        height: req.body["Plant-Height"],
+        spread: req.body["Plant-Spread"],
+        //tab2 Leaf General
+        Leaf_Type: req.body["Leaf-Type"],
+        Leaf_Scent: req.body["Leaf-Scent"],
+        Leaf_Persistance: req.body["Leaf-Persistance"],
+        Leaf_Arrangement: req.body["Leaf-Arrangement"],
+        //tab3 Leaf Shape
+        Leaf_Shape: req.body["Leaf-Shape"],
+        //tab4 Leaf Margins
+        Leaf_Margins: req.body["Leaf-Margins"],
+        //tab5 Leaf Venation/Color
+        Leaf_Venation: req.body["Leaf-Venation"],
+        color_growing_season: req.body["Color-In-Growing-Season"],
+        color_changing_season: req.body["Color-In-Changing-Season"],
+        Leaf_Blade: req.body["Leaf-Blade-Length"],
+        //tab6 Flower
+        Flower_Color: req.body["Flower-Color"],
+        Flower_Scent: req.body["Flower-Scent"],
+        seasons: req.body["Flower-Season"],
+        Flower_Showiness: req.body["Flower-Showiness"],
+        //tab7 Fruit
+        Fruit_Color: req.body["Fruit-Color"],
+        Fruit_Showiness: req.body["Fruit-Showiness"],
+        Fruit_Type: req.body["Fruit-Type"],
+        Fruit_seasons: req.body["Fruit-Season"],                //NA
+        Fruit_Size: req.body["Fruit-Size"],
+        //tab8 Trunk
+        trunk_Esthetic: req.body["Trunk-Esthetic"],             //NA
+        crownshaft: req.body["Crownshaft"],                     //NA
+    };
+
+
+    //  Copy only existing values from parametersTemplate into callParameters
+    let callParameters = {};
+    Object.entries(parametersTemplate).forEach(([key, value]) => {
+        if (value != undefined) {
+            callParameters[key] = value;
+        }
+    })
+
+    console.log("Searching By Identification for plants with :\n", callParameters);
+
+    // Plant.find(callParameters)
+    Plant.find()
+        .then((result) => {
+            res.render("filtered_plants_res", {filterBy: "Identification", plants: result });
+        })
+        .catch((err) => {
+            console.error("Error in serach by criteria: ", err);
+        })
+
 })

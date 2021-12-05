@@ -10,7 +10,9 @@ window.onload = () => {
     currentTabContainer = $("tab-1");
 
     switchTabs();
-    highlightCountry();
+    if ($("main-map")) {
+        highlightCountry();
+    }
     toggleImgSelect();
 
     $("back-btn").onclick = backBtn;

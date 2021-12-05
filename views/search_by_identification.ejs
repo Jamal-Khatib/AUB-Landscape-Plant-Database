@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter By Criteria</title>
+    <title>Filter By Identification - AUB Landscape</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/search_by_criteria/map_countries.css">
     <link rel="stylesheet" href="css/search_by_criteria/search_by_criteria.css">
     <script src="js/search_by_criteria/tabs.js"></script>
 </head>
@@ -15,7 +14,7 @@
 <body>
     <%- include("./partials/header.ejs") %>
 
-        <form action="/FilterByCriteria" method="post">
+        <form action="/FilterByIdentification" method="post">
             <ul id="controls">
                 <li><button type="button" id="back-btn">Back</button></li>
                 <li><button type="submit" id="submit-btn">Submit</button></li>
@@ -23,34 +22,31 @@
             </ul>
 
             <ul id="tabs">
-                <li><button type="button" id="tab-btn-1" class="tabs-selected">Country</button></li>
-                <!-- <li><button id="tab-btn-2" class="tabs-done">Climate</button></li> -->
-                <li><button type="button" id="tab-btn-2" class="tabs-done">Basic Info</button></li>
-                <li><button type="button" id="tab-btn-3" class="tabs-done">Uses</button></li>
-                <li><button type="button" id="tab-btn-4" class="tabs-done">Size\Shape</button></li>
-                <li><button type="button" id="tab-btn-5" class="tabs-done">Leaf</button></li>
+                <li><button type="button" id="tab-btn-1" class="tabs-selected">Size\Shape</button></li>
+                <li><button type="button" id="tab-btn-2" class="tabs-done">Leaf General</button></li>
+                <li><button type="button" id="tab-btn-3" class="tabs-done">Leaf Shape</button></li>
+                <li><button type="button" id="tab-btn-4" class="tabs-done">Leaf Margin</button></li>
+                <li><button type="button" id="tab-btn-5" class="tabs-done">Leaf Venation/Color</button></li>
                 <li><button type="button" id="tab-btn-6" class="tabs-done">Flower</button></li>
                 <li><button type="button" id="tab-btn-7" class="tabs-done">Fruit</button></li>
                 <li><button type="button" id="tab-btn-8" class="tabs-done">Trunk</button></li>
-                <li><button type="button" id="tab-btn-9" class="tabs-done">Management</button></li>
             </ul> 
 
             <div id="tab-container">
                 <div id="tab-1" class="tab-container-selected">
-                    <%- include("./partials/search_by_criteria/map_countries.ejs") %>
+                    <%- include("./partials/search_by_identification/size_shape.ejs") %>
                 </div>
-                <!-- <div id="tab-2" class="tab-container-hidden"></div> -->
                 <div id="tab-2" class="tab-container-hidden">
-                    <%- include("./partials/search_by_criteria/basic_info.ejs") %>
+                    <%- include("./partials/search_by_identification/leaf_general.ejs") %>
                 </div>
                 <div id="tab-3" class="tab-container-hidden">
-                    <%- include("./partials/search_by_criteria/uses.ejs") %>
+                    <%- include("./partials/search_by_identification/leaf_shape.ejs") %>
                 </div>
                 <div id="tab-4" class="tab-container-hidden">
-                    <%- include("./partials/search_by_criteria/size_shape.ejs") %>
+                    <%- include("./partials/search_by_identification/leaf_margins.ejs") %>
                 </div>
                 <div id="tab-5" class="tab-container-hidden">
-                    <%- include("./partials/search_by_criteria/leaf.ejs") %>
+                    <%- include("./partials/search_by_identification/leaf_venation.ejs") %>
                 </div>
                 <div id="tab-6" class="tab-container-hidden">
                     <%- include("./partials/search_by_criteria/flower.ejs") %>
@@ -60,9 +56,6 @@
                 </div>
                 <div id="tab-8" class="tab-container-hidden">
                     <%- include("./partials/search_by_criteria/trunk.ejs") %>
-                </div>
-                <div id="tab-9" class="tab-container-hidden">
-                    <%- include("./partials/search_by_criteria/management.ejs") %>
                 </div>
             </div>
         </form>
