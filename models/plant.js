@@ -55,8 +55,10 @@ const plantSchema = new Schema(
         Invasive_Potential : {type:String},
         Prunning_Requirements : {type:String},
         Edible_Parts : {type:String},
-        Plant_Propagation : {type:String}
+        Plant_Propagation : {type:String},
 
+        Category :  {type:String},
+        Country : {type:String} 
     }, 
     {timestamps: true}
 ) ; 
