@@ -600,3 +600,85 @@ app.get("/glossary",(req,res) => {
 app.get("/about_us",(req,res) => {
     res.render("about_us") ; 
 })
+
+app.post("/filterByCriteria", (req, res) => {
+    const parametersTemplate = {
+        //tab1 Country
+        country: req.body["Country"],   //NA
+        //tab2 Basic Info
+        type: req.body["Plant-Type"],
+        Light_Requirements: req.body["Light"],
+        Soil_Requirements: req.body["Soil"],
+        Soil_Ph_Requirements: req.body["Soil-pH"],
+        Water_Requirements: req.body["Water"],
+        Water_Requirements: req.body["Water"],
+        Heat_Tolerance: req.body["Tolerance-Heat"],
+        Drought_Tolerance: req.body["Tolerance-Drought"],
+        Frost_Tolerance: req.body["Tolerance-Frost"],   //NA
+        Salt_Tolerance: req.body["Tolerance-Salt"],
+        Life_Cycle: req.body["Life-Cycle"], //NA
+        //tab3  Uses
+        uses: req.body["Outdoor"],
+        specialized: req.body["Specialized"],                   //NA
+        native_environment: req.body["Native-Environment"],     //NA
+        human_use: req.body["Human-Use"],                       //NA
+        building: req.body["Building"],                         //NA
+        //tab4 Size/Shape
+        canopy: req.body["Canopy-Shape"],
+        height: req.body["Plant-Height"],
+        spread: req.body["Plant-Spread"],
+        ultimate_height: req.body["Time-to-Ultimate-Height"],   //NA
+        growth_rate: req.body["Growth-Rate"],
+        //tab5 Leaf
+        color_growing_season: req.body["Color-In-Growing-Season"],
+        color_changing_season: req.body["Color-In-Changing-Season"],
+        Leaf_Persistance: req.body["Leaf-Persistance"],
+        Leaf_Scent: req.body["Leaf-Scent"],
+        //tab6 Flower
+        Flower_Color: req.body["Flower-Color"],
+        Flower_Scent: req.body["Flower-Scent"],
+        seasons: req.body["Flower-Season"],
+        Flower_Showiness: req.body["Flower-Showiness"],
+        //tab7 Fruit
+        Fruit_Color: req.body["Fruit-Color"],
+        Fruit_Showiness: req.body["Fruit-Showiness"],
+        Fruit_Type: req.body["Fruit-Type"],
+        Fruit_seasons: req.body["Fruit-Season"],                //NA
+        Fruit_Size: req.body["Fruit-Size"],
+        //tab8 Trunk
+        trunk_Esthetic: req.body["Trunk-Esthetic"],             //NA
+        crownshaft: req.body["Crownshaft"],                     //NA
+        //tab9 Management
+        Edible_Parts: req.body["management-edible"],
+        litter: req.body["management-litter"],                  //NA
+        rooting: req.body["management-rooting"],                //NA
+        toxicity: req.body["management-toxicity"],              //NA
+        Invasive_Potential: req.body["management-potential"],
+        Prunning_Requirements: req.body["management-pruning"],
+        diseases: req.body["management-diseases"],              //NA
+        lifespan: req.body["management-lifespan"],              //NA
+    };
+
+    //  Copy only existing values from parametersTemplate into callParameters
+    let callParameters = {};
+    Object.entries(parametersTemplate).forEach(([key, value]) => {
+        if(value != undefined) {
+            callParameters[key] = value;
+        }
+    })
+
+    Plant.find(callParameters)
+    .then((result) => {
+        if(result.length==0) {
+            console.log("No results found")
+            //TODO render same page with msg
+        }
+        else{
+            console.log("Plant found");
+            //TODO render resulting plants
+        }
+    })
+    .catch((err) => {
+        console.error("Error in serach by criteria: ", err); 
+    })
+})

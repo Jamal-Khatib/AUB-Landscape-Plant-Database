@@ -89,7 +89,7 @@ function switchTabs() {
     }
 }
 
-// ------------------------------------------------------------Tab 1
+// ------------------------------------------------------------Tab 1 - Country
 function highlightCountry() {
     //function to toggle country shape opacity
     function toggleShape(shape, forced = -1) {
@@ -147,12 +147,23 @@ function highlightCountry() {
                 correspondingShape.setAttribute("lastselected", "true");
                 toggleShape(correspondingShape, 1);
                 toggleButton(e.target, 1);
+                console.log("i selected this country");
+
+                //set checkbox to true
+                $(
+                    `hidden-checkbox-${e.target.getAttribute("alt")}`
+                ).checked = true;
             } else if (
                 correspondingShape.getAttribute("lastselected") == "true"
             ) {
                 correspondingShape.setAttribute("lastselected", "false");
                 toggleShape(correspondingShape, 0);
                 toggleButton(e.target, 0);
+
+                //set checkbox to false
+                $(
+                    `hidden-checkbox-${e.target.getAttribute("alt")}`
+                ).checked = false;
             } else {
                 console.error("Shape did not get selected correctly");
             }
@@ -184,10 +195,20 @@ function highlightCountry() {
                 e.target.setAttribute("lastselected", "true");
                 toggleButton(correspondingBtn, 1);
                 toggleShape(e.target, 1);
+
+                //set checkbox to true
+                $(
+                    `hidden-checkbox-${correspondingBtn.getAttribute("alt")}`
+                ).checked = true;
             } else if (e.target.getAttribute("lastselected") == "true") {
                 e.target.setAttribute("lastselected", "false");
                 toggleButton(correspondingBtn, 0);
                 toggleShape(e.target, 0);
+
+                //set checkbox to true
+                $(
+                    `hidden-checkbox-${correspondingBtn.getAttribute("alt")}`
+                ).checked = false;
             } else {
                 console.error("Shape did not get selected correctly");
             }
@@ -195,7 +216,7 @@ function highlightCountry() {
     }
 }
 
-// ------------------------------------------------------------Tab 2
+// ------------------------------------------------------------All tabs
 function toggleImgSelect() {
     var listOfInteractables = document.getElementsByClassName("selectbox");
     for (var i = 0; i < listOfInteractables.length; i++) {
