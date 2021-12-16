@@ -23,5 +23,5 @@ a {
 }
 div.option:hover {
   transform: translateY(-30px);
-  transition: linear 0.3s;
+  /* transition: linear 0.3s; */
 }
