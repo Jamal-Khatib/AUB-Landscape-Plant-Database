@@ -48,11 +48,3 @@ The admin should be able to:
 5. [X] Modify a plant’s profile
 6. [X] Delete a plant
 7. [X] Reply (by email) to messages submitted using the “Contact Us” page i.e. your page should send an email to the original sender of the message
-
-## Project deliverables:
-- Complete source code (zipped)
-- An Excel sheet that shows who did what in each team.
-- A 20 minutes recording where you present your project. All 3 members of the team
-should contribute and the whole team is responsible to show how much effort was put
-in the project. If the size of your video does not allow it to be uploaded, then submit a
-link to it after uploading it to the cloud.
